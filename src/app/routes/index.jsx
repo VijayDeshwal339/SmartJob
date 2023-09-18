@@ -67,6 +67,7 @@ function AppRouter() {
    
     <Routes>
       {/* =====CANDIDATE ROUTES===== */}
+     {/* First commit */}
       <Route path="/" element={<Home />}></Route>
       <Route path="/recruiterjobseeker"  element={<RecruiterJobSeeker/>}> </Route>
       <Route path="/jobdetails" element={<JobDetails  setIsLoggedIn={setIsLoggedIn}/>}></Route>
