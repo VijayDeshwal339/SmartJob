@@ -40,6 +40,11 @@ import img3 from "../../../assets/img/users/Virtual_employe.jpg";
 import Colors from "../../../utils/colors";
 import {Link} from "react-router-dom"
 
+const linkStyle={
+  // color: Colors.palette.color,
+  color:"white",
+  textDecoration:"none"
+}
 const styles = {
   chipContainer: {
     width: '100%',
@@ -110,6 +115,7 @@ const buttonStyles = {
     color: Colors.palette.background.card,
     backgroundColor: Colors.palette.background.text,
   },
+  
 };
 
 const mainStyles = {
@@ -188,7 +194,7 @@ const Home = (isLoggedIn) => {
               height: "50px",
             }}
           >
-            <Link to="/recruiterjobseeker">
+            <Link to="/recruiterjobseeker" style={linkStyle}>
 
             Register
             </Link>
@@ -213,7 +219,7 @@ const Home = (isLoggedIn) => {
             {/* Search Input */}
             <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
               <Box sx={iconContainerStyles}>
-                <Search />
+                <Search/>
                 <TextField
                   label="Job Title/Role/Skills"
                   variant="outlined"

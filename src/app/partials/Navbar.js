@@ -18,9 +18,11 @@ import {
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { deepOrange } from '@mui/material/colors';
-
+import Colors from "../utils/colors";
 import DrawerComp from "../partials/Drawer";
 import {NavLink, Link } from "react-router-dom";
+import { hover } from "@testing-library/user-event/dist/hover";
+import { ClassNames } from "@emotion/react";
 
 const Navbar = (props) => {
     
@@ -30,6 +32,24 @@ const Navbar = (props) => {
   const [value, setValue] = useState();
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+// const styles={
+//   Link:hover{
+//     color:"white";
+//   }
+// }
+const linkStyle={
+  // color: Colors.palette.color,
+  color:"white",
+  textDecoration:"none"
+  // marginRight: "10px",
+  // "&:visited": {
+  //   // marginleft:"30px",
+  //   color:Colors.palette.color,
+    
+  
+  }
+
+
 
   return (
     <>
@@ -52,7 +72,7 @@ const Navbar = (props) => {
                 marginRight: "auto",
               }}
             >
-              <Link to ="/" >
+              <Link to ="/" style={linkStyle}>
 
               Smart Job
               </Link>
@@ -96,13 +116,14 @@ const Navbar = (props) => {
                       sx={{
                         marginRight: "auto",
                         borderRadius: "20px",
-                        color: "white",
+                        // color: "white",
+                        // color:black,
                         borderColor: "white",
                       }}
                       variant="outlined"
                       onClick={()=>setIsLoggedIn(true)}
                     >
-                      <Link to ="/userlogin" >
+                      <Link to ="/userlogin" style={linkStyle} >
 
                       Login
                       </Link>
@@ -115,10 +136,11 @@ const Navbar = (props) => {
                         borderRadius: "20px",
                         color: "white",
                         borderColor: "white",
+                        
                       }}
                       variant="outlined"
                     >
-                      <Link to ="/recruiterjobseeker">
+                      <Link to ="/recruiterjobseeker" style={linkStyle}>
 
                       Register
                       </Link>
