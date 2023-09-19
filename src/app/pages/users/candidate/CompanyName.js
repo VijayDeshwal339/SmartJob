@@ -118,6 +118,7 @@ const buttonStyles = {
   height: "40px",
   borderRadius: "30px",
   backgroundColor: Colors.palette.color.textColor,
+  // backgroundColor:Colors.main.color.textColor,
   fontSize: "20px",
   boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
   textTransform: "capitalize",
@@ -145,17 +146,19 @@ const dividerStyles = {
   height: "55px",
 };
 const buttonStyles1 = {
-  width: "8%",
-  padding:"10px",
-  height: "35px",
+  width: "70%",
+  padding:"20px",
+  height: "20px",
   borderRadius: "30px",
-  backgroundColor:Colors.palette.color.textColor,
+  backgroundColor: Colors.palette.background.card,
+  // backgroundColor:'Colors.light',
+  // backgroundjob:'red',
   fontSize: "20px",
   boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
   textTransform: "capitalize",
-  color: "black",
+  color: "white",
   marginRight: "10px",
-  marginLeft: "10px",
+  marginLeft: "50px",
   "&:hover": {
     color: Colors.palette.background.card,
     backgroundColor: Colors.palette.background.text,
@@ -180,7 +183,6 @@ const CompanyNames = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-  
           }}
         >
           <Box
@@ -247,11 +249,12 @@ const CompanyNames = () => {
             </Grid>
             {/* Submit Button */}
         
-
+<div style={{marginRight: isSmallScreen ? "20%" : "0px" }} >
          
-            <Button type="submit" variant="contained" sx={buttonStyles1}>
-              <Search />
+            <Button type="submit" variant="contained" sx={buttonStyles1} >
+              <Search />Search
             </Button>
+            </div>
             
           
            
