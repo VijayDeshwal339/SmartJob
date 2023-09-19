@@ -340,7 +340,7 @@ export default function Footer() {
               direction="column"
               alignItems="center"
               // justifyContent="center"
-              style={{ marginTop: '20px' }}
+              style={{ marginTop: '20px',color:'red' }}
               xs={12}
               sm={6}
               md={3}
@@ -378,7 +378,7 @@ export default function Footer() {
               item
               direction="column"
               alignItems="center"
-              style={{ marginTop: '20px' }}
+              style={{ marginTop: '20px' ,color:"#241d1dcf" }}
               // justifyContent="center"
               xs={12}
               sm={6}
