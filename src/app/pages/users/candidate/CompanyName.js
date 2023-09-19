@@ -246,11 +246,13 @@ const CompanyNames = () => {
                 />
               </Box>
             </Grid>
-
             {/* Submit Button */}
+         
             <Button type="submit" variant="contained" sx={buttonStyles1}>
               <Search />
             </Button>
+           
+         
           </Box>
         </Box>
       {/* Navigation Bar */}
@@ -290,7 +292,7 @@ const CompanyNames = () => {
       <Box sx={{display:{xs:"none",sm:"block",md:"none",xl:"none",lg:"none"},ml:"18%"}}>
       <Container >
       <Grid container spacing={10}>
-        <Grid item xs={6}  md={4} sm={6}>
+        <Grid item xs={6} sm={6} md={6} xl={6}>
            {/* <Paper elevation={3} sx={{ ...sectionStyles, backgroundColor: 'blue' }}> */}
            <a href="/" style={linkStyles}>
           Companies
@@ -304,7 +306,7 @@ const CompanyNames = () => {
         </a> <br/> <br/>
           {/* </Paper> */}
         </Grid>
-        <Grid item  xs={6} md={4} sm={6}>
+        <Grid item  xs={6} sm={6} md={6} xl={6}>
         <a href="/" style={linkStyles}>
           Category
         </a> <br/> <br/>
