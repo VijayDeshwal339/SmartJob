@@ -159,6 +159,8 @@ const buttonStyles1 = {
   color: "white",
   marginRight: "10px",
   marginLeft: "50px",
+  // marginTop:'10px',
+
   "&:hover": {
     color: Colors.palette.background.card,
     backgroundColor: Colors.palette.background.text,
@@ -171,6 +173,7 @@ const CompanyNames = () => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   const isSmallScreen = useMediaQuery("(max-width: 960px)");
+  // const screenlayout = useMediaQuery("max-width:600)");
 
   return (
     <>
@@ -249,7 +252,7 @@ const CompanyNames = () => {
             </Grid>
             {/* Submit Button */}
         
-<div style={{marginRight: isSmallScreen ? "20%" : "0px" }} >
+<div style={{marginRight: isSmallScreen ? "30%" : "0px" , marginTop: isSmallScreen ? "10px" :"0px" }} >
          
             <Button type="submit" variant="contained" sx={buttonStyles1} >
               <Search />Search
@@ -298,7 +301,7 @@ const CompanyNames = () => {
       <Box sx={{display:{xs:"none",sm:"block",md:"none",xl:"none",lg:"none"},ml:"18%"}}>
       <Container >
       <Grid container spacing={10}>
-        <Grid item xs={6} sm={6} md={6} xl={6}>
+        <Grid item  xs={4} sm={4} md={4} xl={4} >
            {/* <Paper elevation={3} sx={{ ...sectionStyles, backgroundColor: 'blue' }}> */}
            <a href="/" style={linkStyles}>
           Companies
@@ -307,21 +310,25 @@ const CompanyNames = () => {
         <a href="/" style={linkStyles}>
           Skill
         </a> <br/> <br/>
+       
+          {/* </Paper> */}
+        </Grid>
+        <Grid item xs={4} sm={4} md={4} xl={4}>
         <a href="/" style={linkStyles}>
           Designation
         </a> <br/> <br/>
-          {/* </Paper> */}
+        <a href="/" style={linkStyles}>
+        <p>Other Jobs</p>   
+        </a>
         </Grid>
-        <Grid item  xs={6} sm={6} md={6} xl={6}>
+        <Grid item  xs={4} sm={4} md={4} xl={4}>
         <a href="/" style={linkStyles}>
           Category
         </a> <br/> <br/>
         <a href="/" style={linkStyles}>
           Cities
         </a><br/><br/>
-        <a href="/" style={linkStyles}>
-        <p>Other Jobs</p>   
-        </a>
+       
         </Grid>
       </Grid>
       </Container>
