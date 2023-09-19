@@ -33,7 +33,6 @@ const layoutStyles = {
   display: "flex",
   justifyContent: "space-between",
 };
-
 const searchBarStyles = {
   display: "flex",
   alignItems: "center",
@@ -247,10 +246,14 @@ const CompanyNames = () => {
               </Box>
             </Grid>
             {/* Submit Button */}
+        
+
          
             <Button type="submit" variant="contained" sx={buttonStyles1}>
               <Search />
             </Button>
+            
+          
            
          
           </Box>
