@@ -40,8 +40,8 @@ import RegisterLastPage from "../pages/users/candidate/RegisterLastPage";
 
 
 import PostAJob from "../pages/users/recruiter/PostAJob";
-// import Success from "../src/app/partials/Success";
-// import Failed from "../src/app/partials/Failed";
+import Success from "../partials/Success";
+import Failed from "../partials/Failed";
 import EditProfileCompany from "../pages/users/admin/EditProfileCompany";
 
 
@@ -67,6 +67,7 @@ function AppRouter() {
    
     <Routes>
       {/* =====CANDIDATE ROUTES===== */}
+     {/* First commit */}
       <Route path="/" element={<Home />}></Route>
       <Route path="/recruiterjobseeker"  element={<RecruiterJobSeeker/>}> </Route>
       <Route path="/jobdetails" element={<JobDetails  setIsLoggedIn={setIsLoggedIn}/>}></Route>
@@ -140,9 +141,9 @@ function AppRouter() {
       ></Route>
 
       {/* ====MISCALLANEOUS ROUTES===== */}
-      {/* <Route path="/success" element={<Success />}></Route>
+      <Route path="/success" element={<Success />}></Route>
       <Route path="/failed" element={<Failed />}></Route>
-      <Route path='/pop' element={<Pop/>}></Route>  */}
+      <Route path='/pop' element={<Pop/>}></Route> 
       <Route path ='/*'  element={<PageNotFound/>}></Route>
 
       {/*-------------- Authentication Pages --------------*/}

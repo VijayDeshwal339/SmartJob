@@ -97,13 +97,14 @@ grid-gap: 5%;
 						margin-right: 70px;
 }
 `;
-
+// color: #5a5151;
 export const FooterLink = styled.a`
-color: black;
+color:white ;
 margin-bottom: 15px;
 font-size: 18px;
 text-decoration: none;
-font-weight:600;
+margin-left:40px;
+ 
 &:hover {
 	color: #7797FE;
 	transition: 200ms ease-in;
@@ -111,10 +112,11 @@ font-weight:600;
 `;
 
 export const Heading = styled.p`
-font-size: 30px;
-color: #7797FE;
+font-size: 23px;
+color:white;
 margin-bottom: 40px;
-font-weight:400;
+font-weight:700;
+margin-left:40px;
 `;
 
 export const Headings = styled.p`
