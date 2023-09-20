@@ -932,6 +932,8 @@ CardContent,
   TextField,
 } from "@mui/material";
 import { LocationOn,WorkOutline, Search } from "@mui/icons-material";
+import Colors from "../../../utils/colors";
+
 import ArrowDropDown from "@mui/icons-material/KeyboardArrowDown";
 //import DrawerComp from "../../../partials/Drawer";
 import Footer from "../../../partials/Footer";
@@ -963,19 +965,37 @@ const iconContainerStyles = {
 };
 
 const buttonStyles = {
+  // width: { xs: "100%", md: "200px" },
+  // height: "40px",
+  // borderRadius: "50px",
+  // backgroundColor: "#CCFFCC",
+  // fontSize: "18px",
+  // color: "black",
+  // marginRight: "10px",
+  // "&:hover": {
+  //   color: "white",
+  //   backgroundColor: "#7797FE",
+  // },
+  // textTransform: "capitalize ",
+  // fontWeight: "600",
   width: { xs: "100%", md: "200px" },
+  display: "flex",
+ 
   height: "40px",
-  borderRadius: "50px",
-  backgroundColor: "#CCFFCC",
+  borderRadius: "30px",
+  backgroundColor: Colors.palette.color.textColor,
+  // backgroundColor:Colors.main.color.textColor,
   fontSize: "18px",
-  color: "black",
+  boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
+  textTransform: "capitalize",
+  color: Colors.palette.primary.main,
   marginRight: "10px",
   "&:hover": {
-    color: "white",
-    backgroundColor: "#7797FE",
-  },
-  textTransform: "capitalize ",
-  fontWeight: "600",
+    color:Colors.palette.background.card,
+    backgroundColor: Colors.palette.background.text,
+    justifyContent:{sm:"center"}
+  }
+  
 };
 
 const dividerStyles = {
@@ -1036,6 +1056,7 @@ const layoutStyles2 = {
   margin: "30px",
   color: "#6973FE",
 };
+
 
 const JobDetails = () => {
   const [value, setValue] = useState();
@@ -1132,9 +1153,16 @@ const JobDetails = () => {
         )}
 
         {/* Submit Button */}
-        <Button type="submit" variant="contained" sx={buttonStyles}>
+        {/* <Button type="submit" variant="contained" sx={buttonStyles}>
           Search
-        </Button>
+        </Button> */}
+
+<div style={{marginRight: isSmallScreen ? "30%" : "0px" , marginTop: isSmallScreen ? "10px" :"0px" }} >
+         
+         <Button type="submit" variant="contained" sx={buttonStyles} >
+           <Search />Search
+         </Button>
+         </div>
       </Box>
 
       <Box

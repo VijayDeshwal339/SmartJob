@@ -43,7 +43,7 @@ const searchBarStyles = {
   padding: "8px 16px",
   boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
   border: "1px solid #6973FE",
-  height: "40px",
+  height: "55px",
 };
 
 const searchBarStylesResponsive = {
@@ -82,6 +82,7 @@ const navBarStylesResponsive = {
   textAlign: "left",
   paddingLeft: "10px",
 };
+
 
 const companyLayoutStyles = {
   display: "flex",
@@ -143,7 +144,7 @@ const labelStyles = {
 
 const dividerStyles = {
   backgroundColor: Colors.palette.background.defaults,
-  height: "55px",
+  height: "100%",
 };
 const buttonStyles1 = {
   width: "70%",
@@ -181,7 +182,7 @@ const CompanyNames = () => {
     
       {/* Search Bar */}
      
-      <Box
+      {/* <Box
           sx={{
             display: "flex",
             justifyContent: "center",
@@ -197,9 +198,9 @@ const CompanyNames = () => {
               width:"100%",
               padding:"27px"
             }}
-          >
+          > */}
             {/* Search Input */}
-            <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
+            {/* <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
               <Box sx={iconContainerStyles}>
                 <Search />
                 <TextField
@@ -216,8 +217,9 @@ const CompanyNames = () => {
                 />
               </Box>
             </Grid>
+             */}
 
-            {/* Location Input */}
+            {/* Location Input
             <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
               <Box sx={iconContainerStyles}>
                 <LocationOn />
@@ -232,10 +234,10 @@ const CompanyNames = () => {
                   }}
                 />
               </Box>
-            </Grid>
+            </Grid> */}
 
             {/* Experience Input */}
-            <Grid item>
+            {/* <Grid item>
               <Box sx={iconContainerStyles}>
                 <WorkOutline />
                 <TextField
@@ -249,9 +251,9 @@ const CompanyNames = () => {
                   }}
                 />
               </Box>
-            </Grid>
+            </Grid> */}
             {/* Submit Button */}
-        
+{/*         
 <div style={{marginRight: isSmallScreen ? "30%" : "0px" , marginTop: isSmallScreen ? "10px" :"0px" }} >
          
             <Button type="submit" variant="contained" sx={buttonStyles1} >
@@ -263,7 +265,88 @@ const CompanyNames = () => {
            
          
           </Box>
-        </Box>
+        </Box> */}
+
+
+          {/* Search Bar */}
+      <Box
+        component="form" // Form element to handle form submission
+        sx={{
+          ...searchBarStyles,
+          ...(isSmallScreen && searchBarStylesResponsive),
+          flexDirection: isSmallScreen ? "column" : "row",
+        }}
+      >
+        {/* Search Input */}
+        <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
+          <Box sx={iconContainerStyles}>
+            <Search />
+            <TextField
+              label="Skill/Designations/Companies"
+              variant="outlined"
+              size="small"
+              fullWidth={!isSmallScreen}
+              sx={{
+                "& fieldset": { border: "none" },
+              }}
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+            />
+          </Box>
+        </Grid>
+        {!isSmallScreen && (
+          <Divider orientation="vertical" sx={dividerStyles} />
+        )}
+        {/* Location Input */}
+        <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
+          <Box sx={iconContainerStyles}>
+            <LocationOn />
+            <TextField
+              label="Location"
+              variant="outlined"
+              size="small"
+              fullWidth={!isSmallScreen}
+              sx={{
+                "& fieldset": { border: "none" },
+              }}
+            />
+          </Box>
+        </Grid>
+        {!isSmallScreen && (
+          <Divider orientation="vertical" sx={dividerStyles} />
+        )}
+        {/* Experience Input */}
+        <Grid item>
+          <Box sx={iconContainerStyles}>
+            <WorkOutline />
+            <TextField
+              label="Experience"
+              variant="outlined"
+              size="small"
+              fullWidth={!isSmallScreen}
+              sx={{
+                "& fieldset": { border: "none" },
+              }}
+            />
+          </Box>
+        </Grid>
+        {!isSmallScreen && (
+          <Divider orientation="vertical" sx={dividerStyles} />
+        )}
+
+        {/* Submit Button */}
+        {/* <Button type="submit" variant="contained" sx={buttonStyles}>
+          Search
+        </Button> */}
+        <div style={{marginRight: isSmallScreen ? "30%" : "0px" , marginTop: isSmallScreen ? "10px" :"0px" }} >
+         
+         <Button type="submit" variant="contained" sx={buttonStyles1} >
+           <Search />Search
+         </Button>
+         </div>
+      </Box>
+
+     
       {/* Navigation Bar */}
       <Box sx={{display:{xs:"block",sm:"none",md:"block",xl:"block",lg:"block"}}}>
        <Box
