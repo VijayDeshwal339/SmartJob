@@ -9,7 +9,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { Check } from "@mui/icons-material";
-import "./LoginAsCompany.css";
+// import "./LoginAsCompany.css";
 import Checkbox from "@mui/material/Checkbox";
 import Axios from "../../../utils/Axios";
 

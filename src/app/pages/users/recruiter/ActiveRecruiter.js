@@ -269,7 +269,7 @@ export default function ActiveRecruiter() {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar
+      {/* <AppBar
         position="fixed"
         open={open}
         sx={{ backgroundColor: "transparent", boxShadow: "none" }}
@@ -279,7 +279,7 @@ export default function ActiveRecruiter() {
             <Navbar />
           </Typography>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
 
       <ResponsiveDrawer variant="permanent">
         <List

@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
-import { Container, TextField, Button, useMediaQuery } from "@mui/material";
+import {
+  Container,
+  TextField,
+  Button,
+  useMediaQuery,
+  Typography,
+} from "@mui/material";
 import Box from "@mui/material/Box";
-import "./postajob.css"
-import Axios from "../../../utils/Axios";
 
-const textFeild = {
-  width: "100%",
-  height: "50px",
-  borderRadius: "30px",
-  border: "1px solid #6973FE",
-  boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
-};
+// import Axios from "../../../utils/Axios";
 
 const outlinedButtonResponsive = {
   fontSize: "10px",
@@ -29,6 +27,15 @@ const button = {
     color: "#7797FE",
     backgroundColor: "white",
   },
+};
+
+const headerStyles = {
+  backgroundColor: "#6973FE",
+  color: "white",
+  fontSize: "18px",
+  textAlign: "center",
+  padding: "10px",
+  marginBottom: "10px",
 };
 
 export default function PostAJob() {
@@ -52,102 +59,111 @@ export default function PostAJob() {
 
   return (
     <>
-      <header>
-        <h1>Post A Job!</h1>
-      </header>
+      <Box sx={headerStyles}>
+        <header>
+          <h1>Post A Job!</h1>
+        </header>
+      </Box>
+
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <Container>
-            <h3>Job Information</h3>
+            <Typography variant="h5" sx={{margin:"1%", color: "#6973FE" }}>
+              Job Information
+            </Typography>
 
             <Grid container rowSpacing={4} columnSpacing={8}>
               <Grid item xs={12} md={6}>
                 <TextField
                   label="Job Title"
+                  id="job"
+                  name="jobtitle"
                   variant="outlined"
                   fullWidth
-                  InputProps={{
-                    style: textFeild,
-                  }}
+                  InputProps={{ sx: { borderRadius: "33px" } }}
                 />
               </Grid>
               <Grid item xs={12} md={6}>
                 <TextField
                   label="Location"
+                  id="location"
+                  name="location"
                   variant="outlined"
                   fullWidth
-                  InputProps={{
-                    style: textFeild,
-                  }}
+                  InputProps={{ sx: { borderRadius: "33px" } }}
                 />
               </Grid>
               <Grid item xs={12} md={6}>
                 <TextField
                   label="Job Type"
+                  id="jobtype"
+                  name="jobtype"
                   variant="outlined"
                   fullWidth
-                  InputProps={{
-                    style: textFeild,
-                  }}
+                  InputProps={{ sx: { borderRadius: "33px" } }}
                 />
               </Grid>
               <Grid item xs={12} md={6}>
                 <TextField
                   label="Salary/Annum"
+                  id="salary"
+                  name="salary"
                   variant="outlined"
                   fullWidth
-                  InputProps={{
-                    style: textFeild,
-                  }}
+                  InputProps={{ sx: { borderRadius: "33px" } }}
                 />
               </Grid>
               <Grid item xs={12} md={6}>
                 <TextField
                   label="Number of Posts"
+                  id="numberofpost"
+                  name="numberofpost"
                   variant="outlined"
                   fullWidth
-                  InputProps={{
-                    style: textFeild,
-                  }}
+                  InputProps={{ sx: { borderRadius: "33px" } }}
                 />
               </Grid>
               <Grid item xs={12} md={6}>
                 <TextField
                   label="Industry"
+                  id="industry"
+                  name="industry"
                   variant="outlined"
                   fullWidth
-                  InputProps={{
-                    style: textFeild,
-                  }}
+                  InputProps={{ sx: { borderRadius: "33px" } }}
                 />
               </Grid>
             </Grid>
 
-            <h3>Qualifications & Experience</h3>
+            <Typography variant="h5" sx={{margin:"1%", color: "#6973FE" }}>
+            Qualifications & Experience
+            </Typography>
             <Grid container rowSpacing={4} columnSpacing={8}>
               <Grid item xs={12} md={6}>
                 <TextField
                   label="Job Title"
+                  id="jobtitle"
+                  name="jobtitle"
                   variant="outlined"
                   fullWidth
-                  InputProps={{
-                    style: textFeild,
-                  }}
+                  InputProps={{ sx: { borderRadius: "33px" } }}
                 />
               </Grid>
               <Grid item xs={12} md={6}>
                 <TextField
                   label="Location"
+                  id="location"
+                  name="location"
                   variant="outlined"
                   fullWidth
-                  InputProps={{
-                    style: textFeild,
-                  }}
+                  InputProps={{ sx: { borderRadius: "33px" } }}
                 />
               </Grid>
             </Grid>
 
-            <h3>Job Description</h3>
+            <Typography variant="h5" sx={{margin:"1%", color: "#6973FE" }}>
+            Job Description
+            </Typography>
             <Box
               component="form"
               sx={{
@@ -169,7 +185,7 @@ export default function PostAJob() {
               </div>
             </Box>
 
-            <div className="BottomBtn">
+            <Box sx={{display:"flex",justifyContent:"center",margin:"10px"}}>
               <Button
                 type="submit"
                 variant="contained"
@@ -180,7 +196,7 @@ export default function PostAJob() {
               >
                 Edit Profile
               </Button>
-            </div>
+            </Box>
           </Container>
         </Grid>
       </Grid>

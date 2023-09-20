@@ -1,58 +1,60 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import Active1 from "../pages/users/admin/Active";
-import Inactive1 from "../pages/users/admin/Inactive";
-import Dashboard from "../pages/users/admin/Dashboard";
-import Homebanner from "../pages/users/admin/Homebanner";
-import EditRecruiter from "../pages/users/admin/EditRecruiter";
-import Offerbanner from "../pages/users/admin/Offerbanner";
-import Domain from "../pages/users/admin/Domain";
-import Subdomain from "../pages/users/admin/Subdomain";
-import Pop from "../pages/users/admin/Pop";
-import PostedJob from "../pages/users/admin/PostedJob";
-import PostedJobCard from "../pages/users/admin/PostedJobCard";
-import colors from "../utils/colors";
-import Candidate from "../pages/users/admin/Candidate";
-import ActiveCandidate from "../pages/users/admin/ActiveCandidate";
-import InactiveCandidate from "../pages/users/admin/InactiveCandidate";
-import Tablebanner from "../pages/users/admin/common/Tablebanner";
-import PendingPostedJob from "../pages/users/admin/Pendingpostedjob";
-import ActivePostedJob from "../pages/users/admin/Activepostedjob";
-import InactivePostedJob from "../pages/users/admin/Inactivepostedjob";
-// import Active1 from"../pages/users/admin/ActiveCandidate";
-// import Inactive1 from"../pages/users/admin/InactiveCandidate";
+import { useEffect,useState } from "react";
+import Navbar from "../partials/Navbar";
 
-import PrivateRoute from "../partials/Privateroute";
+
 import Home from "../pages/users/candidate/Home";
+import RecruiterJobSeeker from "../partials/Recruiterjobseeker";
 import JobDetails from "../pages/users/candidate/JobDetails";
 import CompanyName from "../pages/users/candidate/CompanyName";
+import PrivateRoute from "../partials/Privateroute";
 import JobSeeker from "../pages/users/candidate/JobSeeker";
-
-
-
-import LoginAsCompany from "../pages/users/recruiter/LoginAsCompany";
-import EditRecruiterDetails from "../pages/users/recruiter/EditRecruiterDetails";
 import EditCandidateProfile from "../pages/users/candidate/EditCandidateProfile";
 import EducationDetails1 from "../pages/users/candidate/EducationDetails1";
 import EducationDetails2 from "../pages/users/candidate/EducationDetails2";
 import RegisterLastPage from "../pages/users/candidate/RegisterLastPage";
 
 
-
+import LoginAsCompany from "../pages/users/recruiter/LoginAsCompany";
+import EditRecruiterDetails from "../pages/users/recruiter/EditRecruiterDetails";
 import PostAJob from "../pages/users/recruiter/PostAJob";
+import ActiveRecruiter from "../pages/users/recruiter/ActiveRecruiter";  
+import InActiveRecruiter from "../pages/users/recruiter/InActiveRecruiter";
+import EmployerProfile from "../pages/users/recruiter/EmployerProfile";
+
+
+
+
+import Dashboard from "../pages/users/admin/Dashboard";
+import Active1 from "../pages/users/admin/Active";
+import Inactive1 from "../pages/users/admin/Inactive";
+import Candidate from "../pages/users/admin/Candidate";
+import ActiveCandidate from "../pages/users/admin/ActiveCandidate";
+import InactiveCandidate from "../pages/users/admin/InactiveCandidate";
+import PostedJob from "../pages/users/admin/PostedJob";
+import PendingPostedJob from "../pages/users/admin/Pendingpostedjob";
+import ActivePostedJob from "../pages/users/admin/Activepostedjob";
+import InactivePostedJob from "../pages/users/admin/Inactivepostedjob";
+import Subdomain from "../pages/users/admin/Subdomain";
+import Domain from "../pages/users/admin/Domain";
+import Homebanner from "../pages/users/admin/Homebanner";
+import Offerbanner from "../pages/users/admin/Offerbanner";
+import EditRecruiter from "../pages/users/admin/EditRecruiter";
+import EditProfileCompany from "../pages/users/admin/EditProfileCompany";
+
+
 import Success from "../partials/Success";
 import Failed from "../partials/Failed";
-import EditProfileCompany from "../pages/users/admin/EditProfileCompany";
+import Pop from "../pages/users/admin/Pop";
+import PageNotFound from "../partials/PageNotFound";
 
 
 import AdminLogin from "../pages/users/auth/login/adminlogin/AdminLogin";
 import UserLogin from "../pages/users/auth/login/userlogin/UserLogin";
 import Recruiterregister from "../pages/users/auth/register/recruiterregister/Recruiterregister";
 import UserRegister from "../pages/users/auth/register/userregister/UserRegister";
-import { useEffect,useState } from "react";
-import Navbar from "../partials/Navbar";
-import PageNotFound from "../partials/PageNotFound";
-import RecruiterJobSeeker from "../partials/Recruiterjobseeker";
+
 
 function AppRouter() {
   const [isLoggedIn, setIsLoggedIn]= useState(false); 
@@ -60,11 +62,7 @@ function AppRouter() {
  
   return (
     <div>
-
-
-<Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
-    
-   
+   <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
     <Routes>
       {/* =====CANDIDATE ROUTES===== */}
      {/* First commit */}
@@ -73,12 +71,8 @@ function AppRouter() {
       <Route path="/jobdetails" element={<JobDetails  setIsLoggedIn={setIsLoggedIn}/>}></Route>
       <Route path="/companyname" element={<CompanyName setIsLoggedIn={setIsLoggedIn}/>}></Route>
     
-      <Route path="/jobseeker" element={ 
-         <PrivateRoute isLoggedIn={isLoggedIn}>
-              <JobSeeker/>
-          </PrivateRoute>}>
+      <Route path="/jobseeker" element={ <PrivateRoute isLoggedIn={isLoggedIn}> <JobSeeker/> </PrivateRoute>}> </Route>
 
-          </Route>
       <Route path="/editcandidateprofile" element={<EditCandidateProfile setIsLoggedIn={setIsLoggedIn}/>}></Route>
       <Route path="/educationdetails1" element={<EducationDetails1 setIsLoggedIn={setIsLoggedIn}/>}></Route>
       <Route path="/educationdetails2" element={<EducationDetails2 setIsLoggedIn={setIsLoggedIn}/>}></Route>
@@ -86,8 +80,12 @@ function AppRouter() {
 
       {/* =====RECRUITER ROUTES===== */}
       <Route path="/loginascomapny" element={<LoginAsCompany setIsLoggedIn={setIsLoggedIn}/>}></Route>
-      <Route path="/editrecruiterdetails" element={<EditRecruiterDetails setIsLoggedIn={setIsLoggedIn}/>}></Route>
+      <Route path="/editrecruiterdetails" element={<EditRecruiterDetails setIsLoggedIn={setIsLoggedIn}/>}></Route>   {/*  not done */}
       <Route path="/postajob" element={<PostAJob setIsLoggedIn={setIsLoggedIn} />}></Route>
+      <Route path="/ActiveRecruiter" element={<ActiveRecruiter />}></Route>      {/*  not done */}
+      <Route path="/InActiveRecruiter" element={<InActiveRecruiter />}></Route>   {/*  not done */}
+      <Route path="/EmployerProfile" element={<EmployerProfile />}></Route>
+
 
       {/* =======ADMIN ROUTES========= */}
       
@@ -96,49 +94,17 @@ function AppRouter() {
       <Route path="/inactive" element={<Inactive1 />}></Route>
       <Route path="/candidate" element={<Candidate />}></Route>
       <Route path="/activecandidate" element={<ActiveCandidate />}></Route>{" "}
-      {/*  DONE */}
-      <Route
-        path="/inactivecandidate"
-        element={<InactiveCandidate />}
-      ></Route>{" "}
-      {/*  DONE */}
-      <Route
-        path="/postedjob"
-        element={<PostedJob Postedtitle={"Posted"} buttonColor={"#CCFFCC"} />}
-      ></Route>{" "}
-      {/*  DONE */}
-      <Route
-        path="/pendingjob"
-        element={
-          <PendingPostedJob Postedtitle={"Pending"} buttonColor={"#FFC804"} />
-        }
-      ></Route>
-      <Route
-        path="/activejob"
-        element={
-          <ActivePostedJob Postedtitle={"Active"} buttonColor={"#CCFFCC"} />
-        }
-      ></Route>{" "}
-      {/*  DONE */}
-      <Route
-        path="/inactivejob"
-        element={
-          <InactivePostedJob
-            Postedtitle={"Inactive"}
-            buttonColor={"#FF0000C9"}
-          />
-        }
-      ></Route>{" "}
-      {/*  DONE */}
+      <Route path="/inactivecandidate" element={<InactiveCandidate />} ></Route>{" "}
+      <Route path="/postedjob" element={<PostedJob Postedtitle={"Posted"} buttonColor={"#CCFFCC"} />} ></Route>{" "}
+      <Route path="/pendingjob" element={ <PendingPostedJob Postedtitle={"Pending"} buttonColor={"#FFC804"} /> } ></Route>
+      <Route path="/activejob" element={ <ActivePostedJob Postedtitle={"Active"} buttonColor={"#CCFFCC"} /> } ></Route>{" "}
+      <Route path="/inactivejob" element={<InactivePostedJob Postedtitle={"Inactive"}  buttonColor={"#FF0000C9"} /> } ></Route>{" "}
       <Route path="/subdomain" element={<Subdomain />}></Route>
       <Route path="/domain" element={<Domain />}></Route>
       <Route path="/homebanner" element={<Homebanner />}></Route>
       <Route path="/offerbanner" element={<Offerbanner />}></Route>
       <Route path="/editrecruiter" element={<EditRecruiter />}></Route>
-      <Route
-        path="/editprofilecompany"
-        element={<EditProfileCompany />}
-      ></Route>
+      <Route path="/editprofilecompany" element={<EditProfileCompany />} ></Route>
 
       {/* ====MISCALLANEOUS ROUTES===== */}
       <Route path="/success" element={<Success />}></Route>
