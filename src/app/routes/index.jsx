@@ -22,6 +22,7 @@ import PostAJob from "../pages/users/recruiter/PostAJob";
 import ActiveRecruiter from "../pages/users/recruiter/ActiveRecruiter";  
 import InActiveRecruiter from "../pages/users/recruiter/InActiveRecruiter";
 import EmployerProfile from "../pages/users/recruiter/EmployerProfile";
+import JobDetailswithEditOption from "../pages/users/recruiter/JobDetailswithEditOption";
 
 
 
@@ -85,6 +86,7 @@ function AppRouter() {
       <Route path="/ActiveRecruiter" element={<ActiveRecruiter />}></Route>      {/*  not done */}
       <Route path="/InActiveRecruiter" element={<InActiveRecruiter />}></Route>   {/*  not done */}
       <Route path="/EmployerProfile" element={<EmployerProfile />}></Route>
+      <Route path="/JobDetailswithEditOption" element={<JobDetailswithEditOption />}></Route>
 
 
       {/* =======ADMIN ROUTES========= */}
