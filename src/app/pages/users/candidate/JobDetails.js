@@ -365,7 +365,7 @@ const JobDetails = () => {
           <Typography style={{ marginLeft: "46px", marginTop: "10px" }}>
             Showing 30 results for "Graphic Designer"
           </Typography>
-
+{/* Hiii Commit */}
           {/* Box 1 */}
           <Box
             style={{
