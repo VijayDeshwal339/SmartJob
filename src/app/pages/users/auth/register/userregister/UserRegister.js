@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 // import { Link } from 'react-router-dom';
 import {
   Box,
@@ -12,6 +12,7 @@ import {
   InputAdornment,
   TextField,
   Typography,
+  Autocomplete,
 } from "@mui/material";
 
 import Vector1 from "../../../../../assets/img/Vector1.png";
@@ -22,11 +23,13 @@ import Facebook from "../../../../../assets/img/Facebook.png";
 import Linkedin from "../../../../../assets/img/Linkedin.png";
 import colors from "../../../../../utils/colors";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
+import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import { NavLink } from "react-router-dom";
 // import { useFormik } from "formik/dist";
 // import * as Yup from "yup";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+
+import countries from "../../../../../partials/CountryName";
 
 const style = {
   display: "flex",
@@ -45,13 +48,15 @@ const btnstyles = {
   height: "54px",
   "&:hover": {
     backgroundColor: "white",
+    border: "1px solid #6973FE",
   },
   margin: "0 10px",
 };
 
-const Login = () => {
+const UserRegister = () => {
   const [checked, setChecked] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
+  const [selectedCountry, setSelectedCountry] = useState(null);
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -59,6 +64,19 @@ const Login = () => {
 
   const handleShowPassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+
+  const fileInputRef = useRef(null);
+
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleFileSelect = (event) => {
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+      console.log(`Uploading file: ${selectedFile.name}`);
+    }
   };
 
   // const validationSchema = Yup.object({
@@ -83,52 +101,52 @@ const Login = () => {
         style={{ width: "100%", height: "auto", maxHeight: "100%" }}
       />
       <Box sx={{ display: { xs: "block", md: "flex" } }}>
-        {/* <Box
-          sx={{
-            width: { xs: "100%", md: "50%" },
-            height: "auto",
-            justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
-            display: { xs: "none", sm: "none", md: "initial" },
-          }}
-        >
-          <img src={admin} alt="" />
-        </Box> */}
-
         <Grid item xs={12} md={4} sx={style}>
-          
-
-        <Box
-          sx={{
-            width: { xs: "100%", md: "50%" },
-            mb: { xs: "50px", md: "20px" },
-            height: "auto",
-            justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
-          }}
-        > 
-        <img src={img1} alt=""  />
-          <Typography
-            variant="h4"
-            sx={{ marginBottom: "3%", color: "#6973FE" }}
+          <Box
+            sx={{
+              width: { xs: "100%", md: "50%" },
+              mb: { xs: "50px", md: "20px" },
+              height: "auto",
+              justifyContent: "center",
+              alignItems: "center",
+              textAlign: "center",
+            }}
           >
-            Register With Your Resume
-          </Typography>
-          <Typography variant="h6" sx={{ marginBottom: "5%" }}>
-            We Will Autofill your Details
-          </Typography>
+            <img src={img1} alt="" />
+            <Typography
+              variant="h4"
+              sx={{ marginBottom: "3%", color: "#6973FE" }}
+            >
+              Register With Your Resume
+            </Typography>
+            <Typography variant="h6" sx={{ marginBottom: "5%" }}>
+              We Will Autofill your Details
+            </Typography>
 
-          <Button variant="outlined" sx={btnstyles}>
-            <FileUploadOutlinedIcon />
-            Upload Resume
-          </Button>
+            {/* <Button variant="outlined" sx={btnstyles}>
+              <FileUploadOutlinedIcon />
+              Upload Resume
+            </Button> */}
 
-          <Typography variant="h6" sx={{ margin: "5%" }}>
-          Supported formats- pdf, doc, docx, csv, rtf, txt files File size
-            should not exceed 5 MB
-          </Typography>
+            <input
+              type="file"
+              style={{ display: "none" }}
+              onChange={handleFileSelect}
+              ref={fileInputRef}
+            />
+            <Button
+              variant="outlined"
+              onClick={handleButtonClick}
+              startIcon={<FileUploadOutlinedIcon />}
+              sx={btnstyles}
+            >
+              Upload Resume
+            </Button>
+
+            <Typography variant="h6" sx={{ margin: "5%" }}>
+              Supported formats- pdf, doc, docx, csv, rtf, txt files File size
+              should not exceed 5 MB
+            </Typography>
           </Box>
         </Grid>
 
@@ -221,26 +239,29 @@ const Login = () => {
                           component="span"
                           sx={{ marginRight: "8px" }}
                         >
-                          91
-                        </Typography>
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            height: "24px",
-                            paddingLeft: "8px",
-                            paddingRight: "8px",
-                          }}
-                        >
-                          <Divider
-                            orientation="vertical"
-                            flexItem
-                            sx={{
-                              height: "100%",
-                              backgroundColor: "rgba(0, 0, 0, 0.54)",
+                          <Autocomplete
+                            id="country-select-demo"
+                            sx={{ width: 100 }}
+                            options={countries}
+                            autoHighlight
+                            getOptionLabel={(option) => `+${option.phone}`}
+                            value={selectedCountry}
+                            onChange={(event, newValue) => {
+                              setSelectedCountry(newValue);
                             }}
+                            renderInput={(params) => (
+                              <TextField
+                                {...params}
+                                variant="standard"
+                                fullWidth
+                                InputProps={{
+                                  ...params.InputProps,
+                                  autoComplete: "new-password",
+                                }}
+                              />
+                            )}
                           />
-                        </Box>
+                        </Typography>
                       </InputAdornment>
                     ),
                     sx: { borderRadius: "33px" },
@@ -308,18 +329,13 @@ const Login = () => {
                       />
                     }
                     label={
-                      <Typography
-                        variant="body2"
-                        style={{ color: "black" }}
-                      >
+                      <Typography variant="body2" style={{ color: "black" }}>
                         By registering, you agree to{" "}
                         <span style={{ color: "#6973FE" }}>
                           terms & conditions{" "}
                         </span>
                         &{" "}
-                        <span style={{ color: "#6973FE" }}>
-                          privacy policy
-                        </span>
+                        <span style={{ color: "#6973FE" }}>privacy policy</span>
                         .
                       </Typography>
                     }
@@ -334,15 +350,10 @@ const Login = () => {
                   // to="/dashboard"
                   type="submit"
                   endIcon={<ArrowForwardIcon />}
-                  sx={{
-                    ...btnstyles,
-                  }}
+                  sx={btnstyles}
                   // onClick={formik.handleSubmit}
                 >
-                  <NavLink to="/userlogin">
-
                   Continue
-                  </NavLink>
                 </Button>
               </Grid>
 
@@ -391,14 +402,9 @@ const Login = () => {
                 <Button
                   // component={Link}
                   // to="/adminlogin"
-                  sx={{
-                    ...btnstyles,
-                  }}
+                  sx={btnstyles}
                 >
-                  <NavLink to="/userlogin">
-
                   Log In
-                  </NavLink>
                 </Button>
               </Grid>
             </Grid>
@@ -414,4 +420,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default UserRegister;
