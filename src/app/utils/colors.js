@@ -5,6 +5,7 @@ const Colors = createTheme({
     primary: {
       main: '#000000', 
       backgroundjob: '#CCFFCC',
+      // backgroundjob:'red',
       color:' #FFFFFF',
       color1:' #00000080',
       inactive:"#FF0000",
@@ -15,6 +16,7 @@ const Colors = createTheme({
       default:  '#6973FE',
       card: ' #7797FE',
       text:'#FFFFFF',
+      // backgroundjob:'red',
       background1: '#7797FE',
     },
     color:{

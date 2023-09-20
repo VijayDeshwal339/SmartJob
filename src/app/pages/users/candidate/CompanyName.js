@@ -22,6 +22,7 @@ import Footer from "../../../partials/Footer";
 // import Axios from "../../../utils/Axios";
 import Navbar from "../../../partials/Navbar";
 import Colors from "../../../utils/colors";
+import { buildAggregatedQuickFilterApplier } from "@mui/x-data-grid/hooks/features/filter/gridFilterUtils";
 
 const layoutStyles = {
   width: "auto",
@@ -32,7 +33,6 @@ const layoutStyles = {
   display: "flex",
   justifyContent: "space-between",
 };
-
 const searchBarStyles = {
   display: "flex",
   alignItems: "center",
@@ -118,6 +118,7 @@ const buttonStyles = {
   height: "40px",
   borderRadius: "30px",
   backgroundColor: Colors.palette.color.textColor,
+  // backgroundColor:Colors.main.color.textColor,
   fontSize: "20px",
   boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
   textTransform: "capitalize",
@@ -126,101 +127,143 @@ const buttonStyles = {
   "&:hover": {
     color:Colors.palette.background.card,
     backgroundColor: Colors.palette.background.text,
+    justifyContent:{sm:"center"}
   },
 };
 
 const linkStyles = {
   textDecoration: "none",
-  fontSize: "24px",
+  fontSize: "18px",
   color: Colors.palette.background.defaults,
+};
+const labelStyles = {
+  // color: Colors.palette.background.text, 
+  color:Colors.grey,
 };
 
 const dividerStyles = {
   backgroundColor: Colors.palette.background.defaults,
   height: "55px",
 };
+const buttonStyles1 = {
+  width: "70%",
+  padding:"20px",
+  height: "20px",
+  borderRadius: "30px",
+  backgroundColor: Colors.palette.background.card,
+  // backgroundColor:'Colors.light',
+  // backgroundjob:'red',
+  fontSize: "20px",
+  boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
+  textTransform: "capitalize",
+  color: "white",
+  marginRight: "10px",
+  marginLeft: "50px",
+  // marginTop:'10px',
+
+  "&:hover": {
+    color: Colors.palette.background.card,
+    backgroundColor: Colors.palette.background.text,
+  },
+};
+
 
 const CompanyNames = () => {
   const [value, setValue] = useState();
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   const isSmallScreen = useMediaQuery("(max-width: 960px)");
+  // const screenlayout = useMediaQuery("max-width:600)");
 
   return (
     <>
     {/* <Navbar/> */}
     
       {/* Search Bar */}
+     
       <Box
-        component="form" // Form element to handle form submission
-        sx={{
-          ...searchBarStyles,
-          ...(isSmallScreen && searchBarStylesResponsive),
-          flexDirection: isSmallScreen ? "column" : "row",
-        }}
-      >
-        {/* Search Input */}
-        <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
-          <Box sx={iconContainerStyles}>
-            <Search />
-            <TextField
-              label="Skill/Designations/Companies"
-              variant="outlined"
-              size="small"
-              fullWidth={!isSmallScreen}
-              sx={{
-                "& fieldset": { border: "none" },
-              }}
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-            />
-          </Box>
-        </Grid>
-        {!isSmallScreen && (
-          <Divider orientation="vertical" sx={dividerStyles} />
-        )}
-        {/* Location Input */}
-        <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
-          <Box sx={iconContainerStyles}>
-            <LocationOn />
-            <TextField
-              label="Location"
-              variant="outlined"
-              size="small"
-              fullWidth={!isSmallScreen}
-              sx={{
-                "& fieldset": { border: "none" },
-              }}
-            />
-          </Box>
-        </Grid>
-        {!isSmallScreen && (
-          <Divider orientation="vertical" sx={dividerStyles} />
-        )}
-        {/* Experience Input */}
-        <Grid item>
-          <Box sx={iconContainerStyles}>
-            <WorkOutline />
-            <TextField
-              label="Experience"
-              variant="outlined"
-              size="small"
-              fullWidth={!isSmallScreen}
-              sx={{
-                "& fieldset": { border: "none" },
-              }}
-            />
-          </Box>
-        </Grid>
-        {!isSmallScreen && (
-          <Divider orientation="vertical" sx={dividerStyles} />
-        )}
-        {/* Submit Button */}
-        <Button type="submit" variant="contained" sx={buttonStyles}>
-          Search
-        </Button>
-      </Box>
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Box
+            component="form" // Form element to handle form submission
+            sx={{
+              ...searchBarStyles,
+              ...(isSmallScreen && searchBarStylesResponsive),
+              flexDirection: isSmallScreen ? "column" : "row",
+              width:"100%",
+              padding:"27px"
+            }}
+          >
+            {/* Search Input */}
+            <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
+              <Box sx={iconContainerStyles}>
+                <Search />
+                <TextField
+                  label="Job Title/Role/Skills"
+                  variant="outlined"
+                  size="small"
+                  fullWidth={!isSmallScreen}
+                  InputLabelProps={{ style: labelStyles }}
+                  sx={{
+                    "& fieldset": { border: "none" },
+                  }}
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
+                />
+              </Box>
+            </Grid>
 
+            {/* Location Input */}
+            <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
+              <Box sx={iconContainerStyles}>
+                <LocationOn />
+                <TextField
+                  label="Location"
+                  variant="outlined"
+                  size="small"
+                  fullWidth={!isSmallScreen}
+                  InputLabelProps={{ style: labelStyles }}
+                  sx={{
+                    "& fieldset": { border: "none" },
+                  }}
+                />
+              </Box>
+            </Grid>
+
+            {/* Experience Input */}
+            <Grid item>
+              <Box sx={iconContainerStyles}>
+                <WorkOutline />
+                <TextField
+                  label="Experience"
+                  variant="outlined"
+                  size="small"
+                  fullWidth={!isSmallScreen}
+                  InputLabelProps={{ style: labelStyles }}
+                  sx={{
+                    "& fieldset": { border: "none" },
+                  }}
+                />
+              </Box>
+            </Grid>
+            {/* Submit Button */}
+        
+<div style={{marginRight: isSmallScreen ? "30%" : "0px" , marginTop: isSmallScreen ? "10px" :"0px" }} >
+         
+            <Button type="submit" variant="contained" sx={buttonStyles1} >
+              <Search />Search
+            </Button>
+            </div>
+            
+          
+           
+         
+          </Box>
+        </Box>
       {/* Navigation Bar */}
       <Box sx={{display:{xs:"block",sm:"none",md:"block",xl:"block",lg:"block"}}}>
        <Box
@@ -255,44 +298,37 @@ const CompanyNames = () => {
       </Box> 
 
 
-      <Box sx={{    display:{xs:"none",sm:"block",md:"none",xl:"none",lg:"none"},ml:"18%"}}>
+      <Box sx={{display:{xs:"none",sm:"block",md:"none",xl:"none",lg:"none"},ml:"18%"}}>
       <Container >
-      <Grid container spacing={25}>
-        {/* Section 1 */}
-        <Grid item xs={12} sm={3} md={4}>
-          {/* <Paper elevation={3} sx={{ ...sectionStyles, backgroundColor: 'blue' }}> */}
-          <a href="/" style={linkStyles}>
+      <Grid container spacing={10}>
+        <Grid item  xs={4} sm={4} md={4} xl={4} >
+           {/* <Paper elevation={3} sx={{ ...sectionStyles, backgroundColor: 'blue' }}> */}
+           <a href="/" style={linkStyles}>
           Companies
         </a>
         <br/> <br/>
         <a href="/" style={linkStyles}>
           Skill
-        </a>
+        </a> <br/> <br/>
+       
           {/* </Paper> */}
         </Grid>
-
-        {/* Section 2 */}
-        <Grid item xs={12} sm={3} md={3}>
-          {/* <Paper elevation={3} sx={{ ...sectionStyles, backgroundColor: 'green' }}> */}
-          <a href="/" style={linkStyles}>
+        <Grid item xs={4} sm={4} md={4} xl={4}>
+        <a href="/" style={linkStyles}>
           Designation
         </a> <br/> <br/>
         <a href="/" style={linkStyles}>
-          Category
-        </a>
-          {/* </Paper> */}
-        </Grid>
-
-        {/* Section 3 */}
-        <Grid item xs={12}  sm={3} md={3}>
-          {/* <Paper elevation={3} sx={{ ...sectionStyles, backgroundColor: 'orange' }}>*/}
-          <a href="/" style={linkStyles}>
-          Cities
-        </a><br/><br/>
-        <a href="/" style={linkStyles}>
         <p>Other Jobs</p>   
         </a>
-          {/* </Paper> */}
+        </Grid>
+        <Grid item  xs={4} sm={4} md={4} xl={4}>
+        <a href="/" style={linkStyles}>
+          Category
+        </a> <br/> <br/>
+        <a href="/" style={linkStyles}>
+          Cities
+        </a><br/><br/>
+       
         </Grid>
       </Grid>
       </Container>

@@ -296,10 +296,12 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import footer from "../../app/assets/img/users/Footer.jpg";
 
 const footerStyle = {
-  backgroundImage: `url(${footer})`,
+  // backgroundImage: `url(${footer})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
+      background: "linear-gradient(332deg, #2c367f, #c0c0d8)"
+
   // marginTop:"10px",
 };
 
@@ -316,16 +318,17 @@ export default function Footer() {
               container
               item
               direction="column"
-              alignItems="center"
+              // alignItems="center"
               // justifyContent="center"
+              sx={{color: "white"}}
               xs={12}
               sm={6}
               md={3}
             >
-              <Box sx={{ justifyContent: "center", textAlign: "center", marginTop:"20px" }}>
+              <Box sx={{ marginTop:"20px" }}>
                 <Heading>Smart Job</Heading>
-                <h4>“Your Career, Our Mission.”</h4>
-                <Typography>
+                {/* <h4>“Your Career, Our Mission.”</h4> */}
+                <Typography sx={{marginLeft:"40px"}}>
                   smartjob is a leading employment services industry since 2009,
                   offering customers vital services to meet their Global
                   Recruitment & Staffing needs with a PAN India presence in
@@ -338,7 +341,7 @@ export default function Footer() {
               container
               item
               direction="column"
-              alignItems="center"
+              // salignItems="center"
               // justifyContent="center"
               style={{ marginTop: '20px' }}
               xs={12}
@@ -358,7 +361,7 @@ export default function Footer() {
               container
               item
               direction="column"
-              alignItems="center"
+              // alignItems="center"
               style={{ marginTop: '20px' }}
               // justifyContent="center"
               xs={12}
@@ -377,8 +380,8 @@ export default function Footer() {
               container
               item
               direction="column"
-              alignItems="center"
-              style={{ marginTop: '20px' }}
+              // alignItems="center"
+              style={{ marginTop: '20px' ,color:"red" }}
               // justifyContent="center"
               xs={12}
               sm={6}
@@ -414,7 +417,7 @@ export default function Footer() {
               justifyContent="start"
               xs={12}
             >
-              <Typography>
+              <Typography style={{ color: "white" }}>
                 Email:{" "}
                 <Link
                   href="mailto:info@spiralegroup.com"
@@ -436,25 +439,25 @@ export default function Footer() {
               justifyContent="center"
               xs={12}
             >
-              <Typography>
+              <Typography style={{ color: "white" }}>
                 &copy; 2022 All Rights With{" "}
-                <span style={{ color: "white" }}>SmartJob</span> & Powered By
+                <span style={{ color: "white" }}>SmartJob</span> & Powered By &nbsp;
                 <span style={{ color: "white" }}>
                   www.spiralegroup.com
                 </span>{" "}
                 &nbsp;
               </Typography>
-              <Typography>Our Social Media</Typography>
-              <IconButton style={{ color: "black" }}>
+              <Typography style={{ color: "white" }}>Our Social Media</Typography>
+              <IconButton style={{ color: "white" }}>
                 <TwitterIcon />
               </IconButton>
-              <IconButton style={{ color: "black" }}>
+              <IconButton style={{ color: "white" }}>
                 <InstagramIcon />
               </IconButton>
-              <IconButton style={{ color: "black" }}>
+              <IconButton style={{ color: "white" }}>
                 <FacebookRoundedIcon />
               </IconButton>
-              <IconButton style={{ color: "black" }}>
+              <IconButton style={{ color: "white" }}>
                 <LinkedInIcon />
               </IconButton>
             </Grid>
