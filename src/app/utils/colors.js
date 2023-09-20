@@ -21,6 +21,7 @@ const Colors = createTheme({
       maincolor: '#000000',
       body:' #FFFFFF',
       textColor:'#CCFFCC',
+     
     },
     shadows:{
       boxshadow: '4px 4px 4px 0px #00000040',
