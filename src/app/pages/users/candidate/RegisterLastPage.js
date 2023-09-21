@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import Typography from "@mui/material/Typography";
 import { Grid, Divider } from "@mui/material";
 import { Container, TextField, Button, useMediaQuery } from "@mui/material";
-import Chip from "@mui/material/Chip";
-import Stack from "@mui/material/Stack";
 import CheckIcon from "@mui/icons-material/Check";
-import Axios from "../../../utils/Axios";
+// import Axios from "../../../utils/Axios";
 
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -20,7 +18,7 @@ const steps = ["Basic Details", "Employment", "Education", "Last Step "];
 const heading = {
   fontWeight: "600",
   textAlign: "left",
-  color:Colors.palette.background.default,
+  color: Colors.palette.background.default,
   marginTop: "30px",
   marginBottom: "10px",
   lineHeight: "70px",
@@ -136,45 +134,69 @@ export default function RegisterLastPage() {
           }}
         >
           {/* Vertical Line */}
-          <div className={classes['list-wrapper']}>
-            <div className={classes['line']}></div>
+          <div className={classes["list-wrapper"]}>
+            <div className={classes["line"]}></div>
 
-            <div className={classes['list-item-wrapper']}>
-              <div className={classes['list-bullet1']} style={{background:Colors.palette.background.card,color:Colors.palette.background.text}}>
+            <div className={classes["list-item-wrapper"]}>
+              <div
+                className={classes["list-bullet1"]}
+                style={{
+                  background: Colors.palette.background.card,
+                  color: Colors.palette.background.text,
+                }}
+              >
                 <CheckIcon sx={{ fontSize: "16px" }} />
               </div>
-              <div className={classes['list-item']}>
-                <div className={classes['list-title']}>Basic Details</div>
+              <div className={classes["list-item"]}>
+                <div className={classes["list-title"]}>Basic Details</div>
               </div>
             </div>
 
-            <div className={classes['list-item-wrapper']}>
-              <div className={classes['list-bulletRLP2']} style={{background:Colors.palette.background.default,color:Colors.palette.background.text}}>
+            <div className={classes["list-item-wrapper"]}>
+              <div
+                className={classes["list-bulletRLP2"]}
+                style={{
+                  background: Colors.palette.background.default,
+                  color: Colors.palette.background.text,
+                }}
+              >
                 <CheckIcon sx={{ fontSize: "16px" }} />
               </div>
-              <div className={classes['list-item']}>
-                <div className={classes['list-title']}>Employment</div>
+              <div className={classes["list-item"]}>
+                <div className={classes["list-title"]}>Employment</div>
               </div>
             </div>
 
-            <div className={classes['list-item-wrapper']}>
-              <div className={classes['list-bulletRLP3']} style={{background:Colors.palette.background.default,color:Colors.palette.background.text}}>
+            <div className={classes["list-item-wrapper"]}>
+              <div
+                className={classes["list-bulletRLP3"]}
+                style={{
+                  background: Colors.palette.background.default,
+                  color: Colors.palette.background.text,
+                }}
+              >
                 <CheckIcon sx={{ fontSize: "16px" }} />
               </div>
-              <div className={classes['list-item']}>
-                <div className={classes['list-title']}>Education</div>
+              <div className={classes["list-item"]}>
+                <div className={classes["list-title"]}>Education</div>
               </div>
-              <div className={classes['white-line']}></div>
+              <div className={classes["white-line"]}></div>
             </div>
 
-            <div className={classes['list-item-wrapper']}>
-              <div className={classes['list-bulletRLP4']}  style={{background:Colors.palette.color.textColor,color:Colors.palette.background.text}}>
+            <div className={classes["list-item-wrapper"]}>
+              <div
+                className={classes["list-bulletRLP4"]}
+                style={{
+                  background: Colors.palette.color.textColor,
+                  color: Colors.palette.background.text,
+                }}
+              >
                 <CheckIcon sx={{ color: Colors.palette.color.textColor }} />
               </div>
-              <div className={classes['list-item']}>
-                <div className={classes['list-title']}>Last Step</div>
+              <div className={classes["list-item"]}>
+                <div className={classes["list-title"]}>Last Step</div>
               </div>
-              <div className={classes['white-line']}></div>
+              <div className={classes["white-line"]}></div>
             </div>
           </div>
         </Grid>
@@ -187,14 +209,16 @@ export default function RegisterLastPage() {
             >
               Add Headline & Preferences
             </Typography>
-            <p>
+            <Typography sx={{ fontSize: "18px", marginBottom: "20px" }}>
               Add Preferences To Get Relevant Job Recommendations & Make Your
               Profile Stronger.
-            </p>
+            </Typography>
 
+            <Typography sx={{ marginTop: "10px", marginBottom: "10px" }}>
+              Highest Qualification
+            </Typography>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8} sx={{ mt: { xs: "4%", sm: "2%" } }}>
-                <h4>Highest Qualification</h4>
+              <Grid item xs={12} md={8}>
                 <TextField
                   label="Add Resume Headline And Get Relevant Job Recommendations"
                   variant="outlined"
@@ -206,9 +230,11 @@ export default function RegisterLastPage() {
               </Grid>
             </Grid>
 
+            <Typography sx={{ marginTop: "10px", marginBottom: "10px" }}>
+              Suggestions:
+            </Typography>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8} sx={{ mt: { xs: "4%", sm: "2%" } }}>
-                <h4>Suggestions:</h4>
+              <Grid item xs={12} md={8}>
                 <TextField
                   label="Graphic Designer & Team Lead With B.A 
                   In Arts&Humanities Currently Living In Noida"
@@ -221,9 +247,11 @@ export default function RegisterLastPage() {
               </Grid>
             </Grid>
 
+            <Typography sx={{ marginTop: "10px", marginBottom: "10px" }}>
+              Prefered Working Locations
+            </Typography>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8} sx={{ mt: { xs: "4%", sm: "2%" } }}>
-                <h4>Prefered Working Locations</h4>
+              <Grid item xs={12} md={8}>
                 <TextField
                   label="Eg: Noida,Delhi,Varanasi"
                   variant="outlined"
@@ -235,11 +263,13 @@ export default function RegisterLastPage() {
               </Grid>
             </Grid>
 
+            <Typography sx={{ marginTop: "10px", marginBottom: "10px" }}>
+              Suggestions:
+            </Typography>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={12} sx={{ mt: { xs: "4%", sm: "2%" } }}>
-                <h4>Suggestions:</h4>
+              <Grid item xs={12} md={12}>
                 <div
-                 className={classes['btn']}
+                  className={classes["btn"]}
                   style={{ ...(isSmallScreen && chipResponsive) }}
                 >
                   <Button
@@ -282,7 +312,7 @@ export default function RegisterLastPage() {
               </Grid>
               <Grid item xs={12} md={12}>
                 <div
-                  className={classes['btn']}
+                  className={classes["btn"]}
                   style={{ ...(isSmallScreen && chipResponsive) }}
                 >
                   <Button
@@ -325,9 +355,11 @@ export default function RegisterLastPage() {
               </Grid>
             </Grid>
 
+            <Typography sx={{ marginTop: "10px", marginBottom: "10px" }}>
+              Preferred Salary
+            </Typography>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8} sx={{ mt: { xs: "4%", sm: "2%" } }}>
-                <h4>Preferred Salary</h4>
+              <Grid item xs={12} md={8}>
                 <TextField
                   label="Eg: 3,50,000"
                   variant="outlined"
@@ -339,10 +371,12 @@ export default function RegisterLastPage() {
               </Grid>
             </Grid>
 
+            <Typography sx={{ marginTop: "10px", marginBottom: "10px" }}>
+              Gender
+            </Typography>
             <Grid container rowSpacing={4} columnSpacing={12}>
-              <Grid item xs={12} md={6} sx={{ mt: { xs: "4%", sm: "2%" } }}>
-                <h4>Gender</h4>
-                <div className={classes['btn']}>
+              <Grid item xs={12} md={6}>
+                <div className={classes["btn"]}>
                   <Button
                     type="submit"
                     variant="outlined"
@@ -377,7 +411,7 @@ export default function RegisterLastPage() {
               </Grid>
             </Grid>
 
-            <div className={classes['BottomBtn']}>
+            <div className={classes["BottomBtn"]}>
               <Button
                 type="submit"
                 variant="contained"

@@ -21,14 +21,13 @@ import img1 from "../../../../../assets/img/Group4.png";
 import Google from "../../../../../assets/img/Google.png";
 import Facebook from "../../../../../assets/img/Facebook.png";
 import Linkedin from "../../../../../assets/img/Linkedin.png";
-import colors from "../../../../../utils/colors";
+import Colors from "../../../../../utils/colors";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import { NavLink } from "react-router-dom";
 // import { useFormik } from "formik/dist";
 // import * as Yup from "yup";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-
 import countries from "../../../../../partials/CountryName";
 
 const style = {
@@ -39,15 +38,15 @@ const style = {
 };
 
 const btnstyles = {
-  color: "black",
-  backgroundColor: "#CCFFCC",
+  color: Colors.palette.primary.main,
+  backgroundColor: Colors.palette.primary.backgroundjob,
   border: "1px solid #CCFFCC",
   borderRadius: "30px",
   boxShadow: "2px 2px 2px 1px rgba(0, 0, 0, 0.2);",
   width: "200px",
   height: "54px",
   "&:hover": {
-    backgroundColor: "white",
+    backgroundColor: Colors.palette.primary.color,
     border: "1px solid #6973FE",
   },
   margin: "0 10px",
@@ -115,7 +114,10 @@ const UserRegister = () => {
             <img src={img1} alt="" />
             <Typography
               variant="h4"
-              sx={{ marginBottom: "3%", color: "#6973FE" }}
+              sx={{
+                marginBottom: "3%",
+                color: Colors.palette.background.default,
+              }}
             >
               Register With Your Resume
             </Typography>
@@ -159,7 +161,7 @@ const UserRegister = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            color: "#000000",
+            color: Colors.palette.primary.main,
             "@media (max-width: 900px)": {
               display: "none",
             },
@@ -178,7 +180,10 @@ const UserRegister = () => {
         >
           <Typography
             variant="h4"
-            sx={{ marginBottom: "3%", color: "#6973FE" }}
+            sx={{
+              marginBottom: "3%",
+              color: Colors.palette.background.default,
+            }}
           >
             Tell Us About Yourself.
           </Typography>
@@ -318,24 +323,33 @@ const UserRegister = () => {
                         className="circular-checkbox"
                         style={{
                           borderRadius: "50%",
-                          background: "#CCFFCC",
+                          background: Colors.palette.primary.backgroundjob,
                           "& .MuiSvgIcon-root": {
                             borderRadius: "50%",
-                            background: colors.textColor,
-                            color: colors.textColor,
+                            background: Colors.palette.primary.backgroundjob,
+                            color: Colors.palette.primary.backgroundjob,
                           },
                         }}
                         color="default"
                       />
                     }
                     label={
-                      <Typography variant="body2" style={{ color: "black" }}>
+                      <Typography
+                        variant="body2"
+                        style={{ color: Colors.palette.primary.main }}
+                      >
                         By registering, you agree to{" "}
-                        <span style={{ color: "#6973FE" }}>
+                        <span
+                          style={{ color: Colors.palette.background.default }}
+                        >
                           terms & conditions{" "}
                         </span>
                         &{" "}
-                        <span style={{ color: "#6973FE" }}>privacy policy</span>
+                        <span
+                          style={{ color: Colors.palette.background.default }}
+                        >
+                          privacy policy
+                        </span>
                         .
                       </Typography>
                     }
@@ -359,7 +373,7 @@ const UserRegister = () => {
 
               <Grid item xs={12}>
                 <Divider
-                  style={{ color: colors.black }}
+                  style={{ color: Colors.palette.primary.main }}
                   variant="middle"
                   sx={{ marginInline: "5%" }}
                 >
@@ -395,7 +409,7 @@ const UserRegister = () => {
                 <Typography
                   variant="h6"
                   component="p"
-                  sx={{ fontSize: "20px", color: colors.black }}
+                  sx={{ fontSize: "20px", color: Colors.palette.primary.main }}
                 >
                   Already Have An Account?
                 </Typography>

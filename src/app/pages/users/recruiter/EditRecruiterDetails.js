@@ -6,19 +6,16 @@ import {
   Container,
   TextField,
   Button,
-  Divider,
   useMediaQuery,
 } from "@mui/material";
-
-import Sidebar from "../../../partials/Sidebar";
 import user from "../../../assets/img/users/User.jpg";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import Colors from "../../../utils/colors";
 // import Axios from "../../../utils/Axios";
 
 const heading = {
   fontWeight: "600",
   textAlign: "left",
-  color: "#6973FE",
+  color: Colors.palette.background.default,
   marginTop: "30px",
   marginBottom: "10px",
   lineHeight: "70px",
@@ -40,7 +37,7 @@ const button1 = {
   marginBottom: "10px",
   borderRadius: "30px",
   textTransform: "capitalize",
-  backgroundColor: "#7797FE",
+  backgroundColor:Colors.palette.background.card,
   color: "white",
   "&:hover": {
     color: "black",
@@ -58,7 +55,7 @@ const button2 = {
   marginBottom: "10px",
   borderRadius: "30px",
   textTransform: "capitalize",
-  backgroundColor: "#CCFFCC",
+  backgroundColor: Colors.palette.primary.backgroundjob,
   color: "black",
   "&:hover": {
     color: "black",
@@ -74,14 +71,7 @@ const button2Responsive = {
 
 const imgStyles = {
   marginTop:"2%",
-  Width: "100%",
-  Height: "100%",
-};
-
-const imgResponsive = {
-  marginTop:"5%",
-  maxWidth: "50%",
-  maxHeight: "50%",
+  maxWidth: "100%",
 };
 
 
@@ -106,11 +96,12 @@ export default function EditRecruiterDetails() {
   // }, []);
 
   return (
+    <Container>
     <Box sx={{ display: "flex" }}>
       {/* <Sidebar/> */}
 
       <Box component="main" sx={{ ...boxStyles }}>
-        <Container>
+        
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <Typography
               variant="h4"
@@ -119,7 +110,7 @@ export default function EditRecruiterDetails() {
               Edit Recruiter Profile
             </Typography>
             <Typography
-              sx={{ ...imgStyles, ...(isSmallScreen && imgResponsive) }}
+              sx={{ ...imgStyles }}
             >
              <div
                 style={{
@@ -336,8 +327,9 @@ export default function EditRecruiterDetails() {
               Save Changes
             </Button>
           </Box>
-        </Container>
+        
       </Box>
     </Box>
+    </Container>
   );
 }

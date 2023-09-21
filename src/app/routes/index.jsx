@@ -63,7 +63,7 @@ function AppRouter() {
  
   return (
     <div>
-   <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
     <Routes>
       {/* =====CANDIDATE ROUTES===== */}
      {/* First commit */}

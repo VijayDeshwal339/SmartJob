@@ -13,7 +13,7 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import Button from "@mui/material/Button";
 import { Drawer } from "@mui/material";
 
-import Navbar from "../../../partials/DropdownNavbar";
+// import Navbar from "./DropdownNavbar";
 
 import "./Dropdown.css";
 
@@ -25,11 +25,11 @@ const drawerWidth = 400;
 const App = () => {
   return (
     <>
-      <Toolbar>
+      {/* <Toolbar>
         <Typography noWrap sx={{ marginLeft: "20%",display: { xs: 'none',md: 'block'} }}>
           <Navbar />
         </Typography>
-      </Toolbar>
+      </Toolbar> */}
 
       <div style={{ display: "flex" }}>
 

@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import Box from "@mui/material/Box";
-
+import Colors from "../../../utils/colors";
 // import Axios from "../../../utils/Axios";
 
 const outlinedButtonResponsive = {
@@ -21,17 +21,17 @@ const button = {
   fontSize: "16px",
   borderRadius: "30px",
   textTransform: "capitalize",
-  backgroundColor: "#6973FE",
-  color: "white",
+  backgroundColor: Colors.palette.background.default,
+  color: Colors.palette.primary.color,
   "&:hover": {
-    color: "#7797FE",
-    backgroundColor: "white",
+    color: Colors.palette.background.card,
+    backgroundColor: Colors.palette.primary.color,
   },
 };
 
 const headerStyles = {
-  backgroundColor: "#6973FE",
-  color: "white",
+  backgroundColor: Colors.palette.background.default,
+  color: Colors.palette.primary.color,
   fontSize: "18px",
   textAlign: "center",
   padding: "10px",
@@ -68,7 +68,7 @@ export default function PostAJob() {
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <Container>
-            <Typography variant="h5" sx={{margin:"1%", color: "#6973FE" }}>
+            <Typography variant="h5" sx={{margin:"1%", color: Colors.palette.background.default, fontWeight: "600", }}>
               Job Information
             </Typography>
 
@@ -135,7 +135,7 @@ export default function PostAJob() {
               </Grid>
             </Grid>
 
-            <Typography variant="h5" sx={{margin:"1%", color: "#6973FE" }}>
+            <Typography variant="h5" sx={{margin:"1%", color: Colors.palette.background.default, fontWeight: "600", }}>
             Qualifications & Experience
             </Typography>
             <Grid container rowSpacing={4} columnSpacing={8}>
@@ -161,7 +161,7 @@ export default function PostAJob() {
               </Grid>
             </Grid>
 
-            <Typography variant="h5" sx={{margin:"1%", color: "#6973FE" }}>
+            <Typography variant="h5" sx={{margin:"1%", color: Colors.palette.background.default, fontWeight: "600", }}>
             Job Description
             </Typography>
             <Box
@@ -169,7 +169,7 @@ export default function PostAJob() {
               sx={{
                 "& .MuiTextField-root": { m: 0, width: "100%" },
                 "& fieldset": {
-                  borderColor: "#6973FE",
+                  borderColor: Colors.palette.background.default,
                 },
               }}
               noValidate

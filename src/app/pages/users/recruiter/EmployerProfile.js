@@ -2,20 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Button, Box, Typography } from "@mui/material";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { ArrowDropDown } from "@mui/icons-material";
-
 import Footer from "../../../partials/Footer";
-
 import img1 from "../../../assets/img/users/EmplyerProfile.jpg";
 import user from "../../../assets/img/users/User.jpg";
+import Colors from "../../../utils/colors";
 
-// const img1Styles = {
-//   width: "100%",
-//   height: "100%",
-//   overflow: "hidden",
-//   backgroundPosition: "center",
-//   backgroundRepeat: "no-repeat",
-//   backgroundAttachment: "flex",
-// };
 
 const div1Styles = {
   maxWidth: "100%",
@@ -83,23 +74,23 @@ const buttonStyles = {
   fontWeight: "400",
   border: "1px solid #6973FE",
   backgroundColor: "transparent",
-  color: "black",
+  color: Colors.palette.primary.main,
   marginBottom: "50px",
 };
 
 const buttonGroupStyles = {
-  backgroundColor: "white",
-  color: "black",
-  borderColor: "#6973FE",
+  backgroundColor: Colors.palette.primary.color,
+  color: Colors.palette.primary.main,
+  borderColor: Colors.palette.background.default,
   width: "130px",
   textTransform:"capitalize",
   fontSize:"14px"
 };
 
 const buttonGroupStyles2 = {
-  backgroundColor: "white",
-  color: "black",
-  borderColor: "#6973FE",
+  backgroundColor: Colors.palette.primary.color,
+  color: Colors.palette.primary.main,
+  borderColor: Colors.palette.background.default,
   borderRadius: "20px",
   width: "150px",
   height: "50px",
@@ -111,7 +102,7 @@ const boxstyles = {
   width: "auto",
   height: "240px",
   borderRadius: "50px",
-  backgroundColor: "#6973FE",
+  backgroundColor: Colors.palette.background.default,
   marginInline: "20px",
   marginBottom: "20px",
   display: "flex",

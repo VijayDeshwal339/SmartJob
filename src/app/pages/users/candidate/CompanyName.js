@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
-  AppBar,
   Button,
-  Tab,
-  Tabs,
-  Toolbar,
   Typography,
   useMediaQuery,
   useTheme,
@@ -16,11 +12,8 @@ import {
   Container,
 } from "@mui/material";
 import { LocationOn, WorkOutline, Search } from "@mui/icons-material";
-import DrawerComp from "../../../partials/Drawer";
-// import "../../../partials/Footer.css";
 import Footer from "../../../partials/Footer";
 // import Axios from "../../../utils/Axios";
-import Navbar from "../../../partials/Navbar";
 import Colors from "../../../utils/colors";
 import { buildAggregatedQuickFilterApplier } from "@mui/x-data-grid/hooks/features/filter/gridFilterUtils";
 
@@ -83,7 +76,6 @@ const navBarStylesResponsive = {
   paddingLeft: "10px",
 };
 
-
 const companyLayoutStyles = {
   display: "flex",
   alignItems: "center",
@@ -126,29 +118,31 @@ const buttonStyles = {
   color: Colors.palette.primary.main,
   marginRight: "10px",
   "&:hover": {
-    color:Colors.palette.background.card,
+    color: Colors.palette.background.card,
     backgroundColor: Colors.palette.background.text,
-    justifyContent:{sm:"center"}
+    justifyContent: { sm: "center" },
   },
 };
 
 const linkStyles = {
   textDecoration: "none",
   fontSize: "18px",
-  color: Colors.palette.background.defaults,
+  color: Colors.palette.background.default,
 };
+
 const labelStyles = {
-  // color: Colors.palette.background.text, 
-  color:Colors.grey,
+  // color: Colors.palette.background.text,
+  color: Colors.grey,
 };
 
 const dividerStyles = {
-  backgroundColor: Colors.palette.background.defaults,
+  backgroundColor: Colors.palette.background.default,
   height: "100%",
 };
+
 const buttonStyles1 = {
   width: "70%",
-  padding:"20px",
+  padding: "20px",
   height: "20px",
   borderRadius: "30px",
   backgroundColor: Colors.palette.background.card,
@@ -168,7 +162,6 @@ const buttonStyles1 = {
   },
 };
 
-
 const CompanyNames = () => {
   const [value, setValue] = useState();
   const theme = useTheme();
@@ -178,99 +171,8 @@ const CompanyNames = () => {
 
   return (
     <>
-    {/* <Navbar/> */}
-    
-      {/* Search Bar */}
-     
-      {/* <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Box
-            component="form" // Form element to handle form submission
-            sx={{
-              ...searchBarStyles,
-              ...(isSmallScreen && searchBarStylesResponsive),
-              flexDirection: isSmallScreen ? "column" : "row",
-              width:"100%",
-              padding:"27px"
-            }}
-          > */}
-            {/* Search Input */}
-            {/* <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
-              <Box sx={iconContainerStyles}>
-                <Search />
-                <TextField
-                  label="Job Title/Role/Skills"
-                  variant="outlined"
-                  size="small"
-                  fullWidth={!isSmallScreen}
-                  InputLabelProps={{ style: labelStyles }}
-                  sx={{
-                    "& fieldset": { border: "none" },
-                  }}
-                  value={value}
-                  onChange={(e) => setValue(e.target.value)}
-                />
-              </Box>
-            </Grid>
-             */}
-
-            {/* Location Input
-            <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
-              <Box sx={iconContainerStyles}>
-                <LocationOn />
-                <TextField
-                  label="Location"
-                  variant="outlined"
-                  size="small"
-                  fullWidth={!isSmallScreen}
-                  InputLabelProps={{ style: labelStyles }}
-                  sx={{
-                    "& fieldset": { border: "none" },
-                  }}
-                />
-              </Box>
-            </Grid> */}
-
-            {/* Experience Input */}
-            {/* <Grid item>
-              <Box sx={iconContainerStyles}>
-                <WorkOutline />
-                <TextField
-                  label="Experience"
-                  variant="outlined"
-                  size="small"
-                  fullWidth={!isSmallScreen}
-                  InputLabelProps={{ style: labelStyles }}
-                  sx={{
-                    "& fieldset": { border: "none" },
-                  }}
-                />
-              </Box>
-            </Grid> */}
-            {/* Submit Button */}
-{/*         
-<div style={{marginRight: isSmallScreen ? "30%" : "0px" , marginTop: isSmallScreen ? "10px" :"0px" }} >
-         
-            <Button type="submit" variant="contained" sx={buttonStyles1} >
-              <Search />Search
-            </Button>
-            </div>
-            
-          
-           
-         
-          </Box>
-        </Box> */}
-
-
-          {/* Search Bar */}
       <Box
-        component="form" // Form element to handle form submission
+        component="form"
         sx={{
           ...searchBarStyles,
           ...(isSmallScreen && searchBarStylesResponsive),
@@ -338,85 +240,111 @@ const CompanyNames = () => {
         {/* <Button type="submit" variant="contained" sx={buttonStyles}>
           Search
         </Button> */}
-        <div style={{marginRight: isSmallScreen ? "30%" : "0px" , marginTop: isSmallScreen ? "10px" :"0px" }} >
-         
-         <Button type="submit" variant="contained" sx={buttonStyles1} >
-           <Search />Search
-         </Button>
-         </div>
+        <div
+          style={{
+            marginRight: isSmallScreen ? "30%" : "0px",
+            marginTop: isSmallScreen ? "10px" : "0px",
+          }}
+        >
+          <Button type="submit" variant="contained" sx={buttonStyles1}>
+            <Search />
+            Search
+          </Button>
+        </div>
       </Box>
 
-     
       {/* Navigation Bar */}
-      <Box sx={{display:{xs:"block",sm:"none",md:"block",xl:"block",lg:"block"}}}>
-       <Box
-        sx={(theme) => ({
-          ...navBarStyles,
-          [theme.breakpoints.down("sm")]: {
-            ...navBarStylesResponsive,
+      <Box
+        sx={{
+          display: {
+            xs: "block",
+            sm: "none",
+            md: "block",
+            xl: "block",
+            lg: "block",
           },
-        })}
+        }}
       >
-        {/* Navigation links */}
+        <Box
+          sx={(theme) => ({
+            ...navBarStyles,
+            [theme.breakpoints.down("sm")]: {
+              ...navBarStylesResponsive,
+            },
+          })}
+        >
+          {/* Navigation links */}
 
-         <a href="/" style={linkStyles}>
-          Companies
-        </a>
-        <a href="/" style={linkStyles}>
-          Skill
-        </a>
-        <a href="/" style={linkStyles}>
-          Designation
-        </a>
-        <a href="/" style={linkStyles}>
-          Category
-        </a>
-        <a href="/" style={linkStyles}>
-          Cities
-        </a>
-        <a href="/" style={linkStyles}>
-          Other Jobs
-        </a> 
+          <a href="/" style={linkStyles}>
+            Companies
+          </a>
+          <a href="/" style={linkStyles}>
+            Skill
+          </a>
+          <a href="/" style={linkStyles}>
+            Designation
+          </a>
+          <a href="/" style={linkStyles}>
+            Category
+          </a>
+          <a href="/" style={linkStyles}>
+            Cities
+          </a>
+          <a href="/" style={linkStyles}>
+            Other Jobs
+          </a>
+        </Box>
       </Box>
-      </Box> 
 
-
-      <Box sx={{display:{xs:"none",sm:"block",md:"none",xl:"none",lg:"none"},ml:"18%"}}>
-      <Container >
-      <Grid container spacing={10}>
-        <Grid item  xs={4} sm={4} md={4} xl={4} >
-           {/* <Paper elevation={3} sx={{ ...sectionStyles, backgroundColor: 'blue' }}> */}
-           <a href="/" style={linkStyles}>
-          Companies
-        </a>
-        <br/> <br/>
-        <a href="/" style={linkStyles}>
-          Skill
-        </a> <br/> <br/>
-       
-          {/* </Paper> */}
-        </Grid>
-        <Grid item xs={4} sm={4} md={4} xl={4}>
-        <a href="/" style={linkStyles}>
-          Designation
-        </a> <br/> <br/>
-        <a href="/" style={linkStyles}>
-        <p>Other Jobs</p>   
-        </a>
-        </Grid>
-        <Grid item  xs={4} sm={4} md={4} xl={4}>
-        <a href="/" style={linkStyles}>
-          Category
-        </a> <br/> <br/>
-        <a href="/" style={linkStyles}>
-          Cities
-        </a><br/><br/>
-       
-        </Grid>
-      </Grid>
-      </Container>
-    </Box>
-  
+      <Box
+        sx={{
+          display: {
+            xs: "none",
+            sm: "block",
+            md: "none",
+            xl: "none",
+            lg: "none",
+          },
+          ml: "18%",
+        }}
+      >
+        <Container>
+          <Grid container spacing={10}>
+            <Grid item xs={4} sm={4} md={4} xl={4}>
+              {/* <Paper elevation={3} sx={{ ...sectionStyles, backgroundColor: 'blue' }}> */}
+              <a href="/" style={linkStyles}>
+                Companies
+              </a>
+              <br /> <br />
+              <a href="/" style={linkStyles}>
+                Skill
+              </a>{" "}
+              <br /> <br />
+              {/* </Paper> */}
+            </Grid>
+            <Grid item xs={4} sm={4} md={4} xl={4}>
+              <a href="/" style={linkStyles}>
+                Designation
+              </a>{" "}
+              <br /> <br />
+              <a href="/" style={linkStyles}>
+                <p>Other Jobs</p>
+              </a>
+            </Grid>
+            <Grid item xs={4} sm={4} md={4} xl={4}>
+              <a href="/" style={linkStyles}>
+                Category
+              </a>{" "}
+              <br /> <br />
+              <a href="/" style={linkStyles}>
+                Cities
+              </a>
+              <br />
+              <br />
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
 
       {/* Company Layout */}
       <Box
@@ -449,7 +377,7 @@ const CompanyNames = () => {
               sx={{
                 ...layoutStyles,
                 backgroundColor: Colors.palette.background.card,
-                color:Colors.palette.background.text,
+                color: Colors.palette.background.text,
               }}
             >
               <div style={contentStyles}>
@@ -470,12 +398,12 @@ const CompanyNames = () => {
               elevation={3}
               sx={{
                 ...layoutStyles,
-                backgroundColor: Colors.palette.background.card,
-                color:Colors.palette.background.text,
+                backgroundColor: Colors.palette.background.text,
+                color: Colors.palette.primary.main,
               }}
             >
               <div style={contentStyles}>
-                <h1>Jobs by Top Designation</h1>
+                <h1 style={titleStyles}>Jobs by Top Designation</h1>
                 <p>Adani Power jobs</p>
                 <p>Aditya Birla Capital Jobs</p>
                 <p>Air asia jobs</p>
@@ -488,9 +416,16 @@ const CompanyNames = () => {
             </Paper>
           </Grid>
           <Grid item xs={12} sm={12} md={12} xl={6}>
-            <Paper elevation={3} sx={{ ...layoutStyles }}>
+            <Paper
+              elevation={3}
+              sx={{
+                ...layoutStyles,
+                backgroundColor: Colors.palette.background.default,
+                color: Colors.palette.primary.color,
+              }}
+            >
               <div style={contentStyles}>
-                <h1 style={titleStyles}>Jobs by top Category</h1>
+                <h1>Jobs by top Category</h1>
                 <p>Adani Power jobs</p>
                 <p>Aditya Birla Capital Jobs</p>
                 <p>Air asia jobs</p>
@@ -523,7 +458,7 @@ const CompanyNames = () => {
               sx={{
                 ...layoutStyles,
                 backgroundColor: Colors.palette.background.card,
-                color:Colors.palette.background.text,
+                color: Colors.palette.background.text,
               }}
             >
               <div style={contentStyles}>

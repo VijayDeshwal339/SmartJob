@@ -21,14 +21,11 @@ const steps = ["Basic Details", "Employment", "Education", "Last Step "];
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-
-
 const style = {
   customLink: {
-    textDecoration: 'none',  // Remove underline
-    color: Colors.palette.background.text,         // Set text color to white
-    fontWeight: 'bold'     // Make the text bold
-  }
+    textDecoration: "none",
+    fontWeight: "bold",
+  },
 };
 
 const heading = {
@@ -59,11 +56,12 @@ const button = {
   fontSize: "16px",
   borderRadius: "30px",
   textTransform: "capitalize",
-  backgroundColor:Colors.palette.color.textColor,
+
+  backgroundColor: Colors.palette.color.textColor,
   color: Colors.palette.primary.main,
   "&:hover": {
     color: Colors.palette.background.card,
-    backgroundColor:Colors.palette.background.text,
+    backgroundColor: Colors.palette.background.text,
   },
 };
 
@@ -135,45 +133,69 @@ export default function EducationDetails2() {
         >
           {/* Vertical Line */}
 
-          <div className={classes['list-wrapper']}>
-            <div className={classes['line']}></div>
+          <div className={classes["list-wrapper"]}>
+            <div className={classes["line"]}></div>
 
-            <div className={classes['list-item-wrapper']}>
-              <div className={classes['list-bullet1']} style={{background:Colors.palette.background.card,color:Colors.palette.background.text}}>
+            <div className={classes["list-item-wrapper"]}>
+              <div
+                className={classes["list-bullet1"]}
+                style={{
+                  background: Colors.palette.background.card,
+                  color: Colors.palette.background.text,
+                }}
+              >
                 <CheckIcon sx={{ fontSize: "16px" }} />
               </div>
-              <div className={classes['list-item']}>
-                <div className={classes['list-title']}>Basic Details</div>
+              <div className={classes["list-item"]}>
+                <div className={classes["list-title"]}>Basic Details</div>
               </div>
             </div>
 
-            <div className={classes['list-item-wrapper']}>
-              <div className={classes['list-bulletED2']} style={{background:Colors.palette.background.default,color:Colors.palette.background.text}}>
+            <div className={classes["list-item-wrapper"]}>
+              <div
+                className={classes["list-bulletED2"]}
+                style={{
+                  background: Colors.palette.background.default,
+                  color: Colors.palette.background.text,
+                }}
+              >
                 <CheckIcon sx={{ fontSize: "16px" }} />
               </div>
-              <div className={classes['list-item']}>
-                <div className={classes['list-title']}>Employment</div>
+              <div className={classes["list-item"]}>
+                <div className={classes["list-title"]}>Employment</div>
               </div>
             </div>
 
-            <div className={classes['list-item-wrapper']}>
-              <div className={classes['list-bulletED3']} style={{background:Colors.palette.color.textColor,color:Colors.palette.background.text}}>
-                <CheckIcon sx={{ color:Colors.palette.color.textColor }} />
+            <div className={classes["list-item-wrapper"]}>
+              <div
+                className={classes["list-bulletED3"]}
+                style={{
+                  background: Colors.palette.color.textColor,
+                  color: Colors.palette.background.text,
+                }}
+              >
+                <CheckIcon sx={{ color: Colors.palette.color.textColor }} />
               </div>
-              <div className={classes['list-item']}>
-                <div className={classes['list-title']}>Education</div>
+              <div className={classes["list-item"]}>
+                <div className={classes["list-title"]}>Education</div>
               </div>
-              <div className={classes['white-line']}></div>
+              <div className={classes["white-line"]}></div>
             </div>
 
-            <div className={classes['list-item-wrapper']}>
-              <div className={classes['list-bullet4']} style={{background:Colors.palette.background.default,color:Colors.palette.background.text}}>
+            <div className={classes["list-item-wrapper"]}>
+              <div
+                className={classes["list-bullet4"]}
+                style={{
+                  background: Colors.palette.background.default,
+                  color: Colors.palette.background.text,
+                }}
+              >
                 <CheckIcon sx={{ color: Colors.palette.background.default }} />
               </div>
-              <div className={classes['list-item']}>
-                <div className={classes['list-title']}>Last Step</div>
+              <div className={classes["list-item"]}>
+                <div className={classes["list-title"]}>Last Step</div>
               </div>
-              <div className={classes['white-line']}></div>
+              <div className={classes["white-line"]}></div>
             </div>
           </div>
         </Grid>
@@ -181,20 +203,22 @@ export default function EducationDetails2() {
         <Grid item xs={12} sm={8}>
           <Container>
             <Typography
-              variant="h4"
+              variant="Typography"
               sx={{ ...heading, ...(isSmallScreen && headingResponsive) }}
             >
               Mention Your Education
             </Typography>
-            <p>
+            <Typography sx={{ fontSize: "18px", marginBottom: "20px" }}>
               Adding Your Educational Details Will Help Recruiters know Your
               Value As A Potential Candidate.
-            </p>
+            </Typography>
 
-            {/* <h4>Highest Qualification</h4> */}
+            {/* <Typography>Highest Qualification</Typography> */}
+            <Typography sx={{ marginTop: "10px", marginBottom: "10px" }}>
+              Highest Qualification
+            </Typography>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8} sx={{ mt: { sm: "2%", xs: "4%" } }}>
-                <h4>Highest Qualification</h4>
+              <Grid item xs={12} md={8}>
                 <TextField
                   label="Eg; 10th,12th graduate,diploma"
                   variant="outlined"
@@ -206,10 +230,12 @@ export default function EducationDetails2() {
               </Grid>
             </Grid>
 
-            {/* <h4>Course</h4> */}
+            {/* <Typography>Course</Typography> */}
+            <Typography sx={{ marginTop: "10px", marginBottom: "10px" }}>
+              Course
+            </Typography>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8} sx={{ mt: { sm: "2%", xs: "4%" } }}>
-                <h4>Course</h4>
+              <Grid item xs={12} md={8}>
                 <TextField
                   label="Eg; B.A,Bsc,Bcom"
                   variant="outlined"
@@ -221,9 +247,11 @@ export default function EducationDetails2() {
               </Grid>
             </Grid>
 
+            <Typography sx={{ marginTop: "10px", marginBottom: "10px" }}>
+              Specilization
+            </Typography>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8} sx={{ mt: { sm: "2%", xs: "4%" } }}>
-                <h4>Specilization</h4>
+              <Grid item xs={12} md={8}>
                 <TextField
                   label="Art,Commerce,Science"
                   variant="outlined"
@@ -235,9 +263,11 @@ export default function EducationDetails2() {
               </Grid>
             </Grid>
 
+            <Typography sx={{ marginTop: "10px", marginBottom: "10px" }}>
+              University / Institute
+            </Typography>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8} sx={{ mt: { sm: "2%", xs: "4%" } }}>
-                <h4>University / Institute</h4>
+              <Grid item xs={12} md={8}>
                 <TextField
                   label="Eg; Mahatma Gandhi Kashi Vidhyapeeth (MGKVP)"
                   variant="outlined"
@@ -249,9 +279,11 @@ export default function EducationDetails2() {
               </Grid>
             </Grid>
 
+            <Typography sx={{ marginTop: "10px", marginBottom: "10px" }}>
+              Starting Year
+            </Typography>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8} sx={{ mt: { sm: "2%", xs: "4%" } }}>
-                <h4>Starting Year</h4>
+              <Grid item xs={12} md={8}>
                 <TextField
                   label="Eg; 2021"
                   variant="outlined"
@@ -263,9 +295,11 @@ export default function EducationDetails2() {
               </Grid>
             </Grid>
 
+            <Typography sx={{ marginTop: "10px", marginBottom: "10px" }}>
+              Passing Year
+            </Typography>
             <Grid container rowSpacing={4} columnSpacing={8}>
-              <Grid item xs={12} md={8} sx={{ mt: { sm: "2%", xs: "4%" } }}>
-                <h4>Passing Year</h4>
+              <Grid item xs={12} md={8}>
                 <TextField
                   label="Eg; 2023"
                   variant="outlined"
@@ -277,15 +311,21 @@ export default function EducationDetails2() {
               </Grid>
             </Grid>
 
-            <div classNameName="BottomBtn">
-            <Link to="/registerlastpage" style={style.customLink}> 
-              <Button
-                type="submit"
-                variant="contained"
-                sx={{ ...button, ...(isSmallScreen && ButtonResponsive) }}
-              >
-                Continue <ArrowForwardOutlinedIcon />
-              </Button></Link>
+            <div className={classes["BottomBtn"]}>
+              <Link to="/registerlastpage" style={style.customLink}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{
+                    ...button,
+                    ...(isSmallScreen && ButtonResponsive),
+                    textAlign: "center",
+                    ml: "-25%",
+                  }}
+                >
+                  Continue <ArrowForwardOutlinedIcon />
+                </Button>
+              </Link>
             </div>
           </Container>
         </Grid>

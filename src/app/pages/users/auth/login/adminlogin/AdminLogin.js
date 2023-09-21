@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-//  import { Link } from 'react-router-dom';
-
 import {
   Box,
   Button,
@@ -14,8 +12,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-
-
 import { NavLink } from "react-router-dom";
 import Vector1 from "../../../../../assets/img/Vector1.png";
 import Vector2 from "../../../../../assets/img/Vector2.png";
@@ -23,14 +19,28 @@ import admin from "../../../../../assets/img/admin-01 1.png";
 import Google from "../../../../../assets/img/Google.png";
 import Facebook from "../../../../../assets/img/Facebook.png";
 import Linkedin from "../../../../../assets/img/Linkedin.png";
-import colors from "../../../../../utils/colors"
-
+import Colors from "../../../../../utils/colors";
 // import Frame from "../../../../../assets/img/Frame 2.png";
-
 // import { useFormik } from "formik/dist";
 // import * as Yup from "yup";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import Icondialogue from "../../../../../partials/Icondialogue"
+// import Icondialogue from "../../../../../partials/Icondialogue";
+
+const btnstyles = {
+  color: Colors.palette.primary.main,
+  backgroundColor: Colors.palette.primary.backgroundjob,
+  border: "1px solid #CCFFCC",
+  borderRadius: "30px",
+  boxShadow: "2px 2px 2px 1px rgba(0, 0, 0, 0.2);",
+  width: "200px",
+  height: "54px",
+  "&:hover": {
+    backgroundColor: Colors.palette.primary.color,
+    border: "1px solid #6973FE",
+  },
+  margin: "0 10px",
+};
+
 const Login = () => {
   const [checked, setChecked] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
@@ -43,24 +53,24 @@ const Login = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-//   const validationSchema = Yup.object({
-//     email: Yup.string().required("Email/Username is required"),
-//     password: Yup.string().required("Password is required"),
-//   });
+  //   const validationSchema = Yup.object({
+  //     email: Yup.string().required("Email/Username is required"),
+  //     password: Yup.string().required("Password is required"),
+  //   });
 
-//   const formik = useFormik({
-//     initialValues: {
-//       email: "",
-//       password: "",
-//     },
-//     validationSchema: validationSchema,
-//     onSubmit: async (values) => {},
-//   });
+  //   const formik = useFormik({
+  //     initialValues: {
+  //       email: "",
+  //       password: "",
+  //     },
+  //     validationSchema: validationSchema,
+  //     onSubmit: async (values) => {},
+  //   });
 
   return (
     <Box sx={{ overflow: "hidden" }}>
       <img
-       alt=""
+        alt=""
         src={Vector1}
         style={{ width: "100%", height: "auto", maxHeight: "100%" }}
       />
@@ -77,14 +87,9 @@ const Login = () => {
             display: { xs: "none", sm: "none", md: "initial" },
           }}
         >
-          
-            
-
-         
-
-         <Typography  >
-            <img src={admin}  alt="" />
-            </Typography>
+          <Typography>
+            <img src={admin} alt="" />
+          </Typography>
         </Box>
 
         {/**************** divider between left and right ***************/}
@@ -98,7 +103,7 @@ const Login = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            color: "#000000",
+            color: Colors.palette.primary.main,
             "@media (max-width: 900px)": {
               display: "none",
             },
@@ -117,7 +122,10 @@ const Login = () => {
             textAlign: "center", // Center content horizontally
           }}
         >
-          <Typography variant="h3" sx={{ marginY: "5%", color: '#6973FE' }}>
+          <Typography
+            variant="h3"
+            sx={{ marginY: "5%", color: Colors.palette.background.default }}
+          >
             Login
           </Typography>
           <Container>
@@ -131,10 +139,10 @@ const Login = () => {
                   variant="outlined"
                   fullWidth
                   InputProps={{ sx: { borderRadius: "33px" } }}
-                //   value={formik.values.email}
-                //   onChange={formik.handleChange}
-                //   error={formik.touched.email && Boolean(formik.errors.email)}
-                //   helperText={formik.touched.email && formik.errors.email}
+                  //   value={formik.values.email}
+                  //   onChange={formik.handleChange}
+                  //   error={formik.touched.email && Boolean(formik.errors.email)}
+                  //   helperText={formik.touched.email && formik.errors.email}
                   // style={{ marginInline: "10%" }}
                   sx={{ marginInline: { xs: "0%", sm: "10%" } }}
                 />
@@ -157,14 +165,14 @@ const Login = () => {
                       </InputAdornment>
                     ),
                   }}
-                //   value={formik.values.password}
-                //   onChange={formik.handleChange}
-                //   error={
-                //     formik.touched.password && Boolean(formik.errors.password)
-                //   }
-                //   helperText={formik.touched.password && formik.errors.password}
+                  //   value={formik.values.password}
+                  //   onChange={formik.handleChange}
+                  //   error={
+                  //     formik.touched.password && Boolean(formik.errors.password)
+                  //   }
+                  //   helperText={formik.touched.password && formik.errors.password}
                   // style={{ marginInline: "10%" }}
-                  sx={{marginInline: {xs: "0%", sm: "10%"}}}
+                  sx={{ marginInline: { xs: "0%", sm: "10%" } }}
                 />
               </Grid>
 
@@ -182,34 +190,29 @@ const Login = () => {
                         style={{
                           // marginLeft: "100px",
                           borderRadius: "50%",
-                          background: colors.textColor,
+                          background: Colors.palette.primary.backgroundjob,
                           "& .MuiSvgIconRoot": {
                             borderRadius: "50%",
-                            background: colors.textColor,
-                            color: colors.textColor,
+                            background: Colors.palette.primary.backgroundjob,
+                            color: Colors.palette.primary.backgroundjob,
                           },
                         }}
                         sx={{ marginLeft: { xs: "10px", sm: "100px" } }}
-                        color="default"
+                        // color="default"
                         onChange={handleChange}
                       />
                     }
                     label={
-                      <Typography
-                        variant="body2"
-                        style={{ color: colors.black }}
-                      >
-                        Keep Me Signed in
-                      </Typography>
+                      <Typography variant="body2">Keep Me Signed in</Typography>
                     }
                   />
 
                   <Typography
                     variant="body2"
                     sx={{
-                      color: colors.background,
+                      // color: Colors.background,
                       marginLeft: { xs: "10px", sm: "100px" },
-                      color: "#6973FE",
+                      color: Colors.palette.background.default,
                     }}
                   >
                     Forgot Password
@@ -218,47 +221,29 @@ const Login = () => {
               </Grid>
 
               <Grid item xs={12} style={{ textAlign: "center" }}>
-              <Button
-                  // component={Link}
-                  // to="/dashboard"
+                <Button
                   type="submit"
-                  // endIcon={<ArrowForwardIcon />}
-                  sx={{
-                    border: "1px",
-                    borderRadius: "34px",
-                    color: "black",
-                    background: "#CCFFCC",
-                    width: "200px",
-                    height: "54px",
-                    "&:hover": {
-                      backgroundColor: "#6973FE",
-                    },
-                    margin: "0 auto", 
-                  }}
+                  sx={btnstyles}
                   // onClick={formik.handleSubmit}
                 >
-                  <NavLink to="/dashboard">
-
-               Login
+                  <NavLink
+                    to="/dashboard"
+                    style={{ color: Colors.palette.primary.main }}
+                  >
+                    Login
                   </NavLink>
                 </Button>
               </Grid>
 
               <Grid item xs={12}>
                 <Divider
-                  style={{ color: 'black'}}
+                  style={{ color: Colors.palette.primary.main }}
                   variant="middle"
                   sx={{ marginInline: "5%" }}
                 >
                   <Typography variant="h4"> Or </Typography>
                 </Divider>
               </Grid>
-
-              
-
-
-
-             
 
               <Grid
                 item
@@ -270,7 +255,7 @@ const Login = () => {
                 <IconButton type="default">
                   <img src={Google} alt="" />
                 </IconButton>
-                <Icondialogue/>
+                {/* <Icondialogue /> */}
                 <IconButton type="default">
                   <img src={Facebook} alt="" />
                 </IconButton>
@@ -289,28 +274,20 @@ const Login = () => {
                 <Typography
                   variant="h6"
                   component="p"
-                  sx={{ fontSize: "20px", color: 'black', marginRight: "10px" }}
+                  sx={{
+                    fontSize: "20px",
+                    color: Colors.palette.primary.main,
+                    marginRight: "10px",
+                  }}
                 >
                   Don’t Have Account?
                 </Typography>
-                <Button
-                  sx={{
-                    border: "1px",
-                    borderRadius: "34px",
-                    color: 'black',
-                    background: "#CCFFCC",
-
-                    // background: colors.textColor,
-                    width: "150px",
-                    height: "40px",
-                    "&:hover": {
-                      background:"#6973FE",
-                    },
-                  }}
-                >
-                  <NavLink to ="/adminregister">
-
-                  Register
+                <Button sx={btnstyles}>
+                  <NavLink
+                    to="/adminregister"
+                    style={{ color: Colors.palette.primary.main }}
+                  >
+                    Register
                   </NavLink>
                 </Button>
               </Grid>
@@ -318,8 +295,8 @@ const Login = () => {
           </Container>
         </Box>
       </Box>
-      <img 
-         alt=""
+      <img
+        alt=""
         src={Vector2}
         style={{ width: "100%", height: "auto", maxHeight: "100%" }}
       />

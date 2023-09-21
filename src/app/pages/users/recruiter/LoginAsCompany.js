@@ -7,11 +7,11 @@ import {
   Button,
   useTheme,
   useMediaQuery,
+  Box,
 } from "@mui/material";
-import { Check } from "@mui/icons-material";
-// import "./LoginAsCompany.css";
+import Colors from "../../../utils/colors";
 import Checkbox from "@mui/material/Checkbox";
-import Axios from "../../../utils/Axios";
+// import Axios from "../../../utils/Axios";
 
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
@@ -19,7 +19,7 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const heading = {
   fontWeight: "600",
   textAlign: "left",
-  color: "#6973FE",
+  color: Colors.palette.background.default,
   marginTop: "30px",
   marginBottom: "10px",
   lineHeight: "70px",
@@ -29,26 +29,17 @@ const headingResponsive = {
   fontSize: "1.4rem",
 };
 
-const textFeild = {
-  width: "100%",
-  height: "50px",
-  borderRadius: "30px",
-  border: "1px solid #6973FE",
-  padding: "0 14px",
-  boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
-};
-
 const button = {
   width: "auto",
   fontSize: "18px",
   marginBottom: "10px",
   borderRadius: "30px",
   textTransform: "capitalize",
-  backgroundColor: "#CCFFCC",
-  color: "black",
+  backgroundColor: Colors.palette.primary.backgroundjob,
+  color: Colors.palette.primary.main,
   "&:hover": {
-    color: "black",
-    backgroundColor: "white",
+    color: Colors.palette.primary.main,
+    backgroundColor: Colors.palette.primary.color,
   },
 };
 
@@ -86,9 +77,7 @@ const LoginAsCompany = () => {
             label="First Name"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+            InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -96,9 +85,7 @@ const LoginAsCompany = () => {
             label="Last Name"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -106,9 +93,7 @@ const LoginAsCompany = () => {
             label="Email Address"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -116,9 +101,7 @@ const LoginAsCompany = () => {
             label="Mobile Number"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -126,9 +109,7 @@ const LoginAsCompany = () => {
             label="Choose Current Location"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -136,9 +117,7 @@ const LoginAsCompany = () => {
             label="Upload Your Photo"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
       </Grid>
@@ -155,9 +134,7 @@ const LoginAsCompany = () => {
             label="Current Company Name"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -165,9 +142,7 @@ const LoginAsCompany = () => {
             label="Current Designation"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -175,9 +150,7 @@ const LoginAsCompany = () => {
             label="From Year"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -185,9 +158,7 @@ const LoginAsCompany = () => {
             label="To Year"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -195,9 +166,7 @@ const LoginAsCompany = () => {
             label="Address Line 1"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -205,9 +174,7 @@ const LoginAsCompany = () => {
             label="Address Line 2"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -215,9 +182,7 @@ const LoginAsCompany = () => {
             label="City"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -225,9 +190,7 @@ const LoginAsCompany = () => {
             label="State/Province/Region"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -235,9 +198,7 @@ const LoginAsCompany = () => {
             label="Zip Code"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -245,9 +206,7 @@ const LoginAsCompany = () => {
             label="Country"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
       </Grid>
@@ -264,9 +223,7 @@ const LoginAsCompany = () => {
             label="Total Experience In Hiring"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -274,9 +231,7 @@ const LoginAsCompany = () => {
             label="Level I Hire For"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -284,9 +239,7 @@ const LoginAsCompany = () => {
             label="Industry"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -294,9 +247,7 @@ const LoginAsCompany = () => {
             label="Functions"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -304,9 +255,7 @@ const LoginAsCompany = () => {
             label="Skills I Hire For"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -314,9 +263,7 @@ const LoginAsCompany = () => {
             label="Referral Code"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
       </Grid>
@@ -333,9 +280,7 @@ const LoginAsCompany = () => {
             label="Description"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -343,31 +288,29 @@ const LoginAsCompany = () => {
             label="Year"
             variant="outlined"
             fullWidth
-            InputProps={{
-              style: textFeild,
-            }}
+           InputProps={{ sx: { borderRadius: "33px" } }}
           />
         </Grid>
       </Grid>
 
-      <div className="agreement">
+      <Box sx={{margin:"20px"}}>
         <p>
           <Checkbox
             {...label}
             defaultChecked
-            sx={{ backgroundColor: "#CCFFCC", color: "black" }}
+            sx={{ backgroundColor: Colors.palette.primary.backgroundjob, color: Colors.palette.primary.main }}
           />{" "}
           I agree to use the aforesaid details to create my Recruiter Profile &
           display it on the <b>SmartJob</b> site and also agree to be bound by
           the <span>Terms of Use </span> & <span>Privacy of SmartJob</span>
         </p>
-      </div>
+      </Box>
 
-      <div className="btn">
+      <Box sx={{display:"flex",justifyContent:"center",alignItems:"center"}}>
         <Button type="submit" variant="contained" sx={button}>
           Submit
         </Button>
-      </div>
+      </Box>
     </Container>
   );
 };

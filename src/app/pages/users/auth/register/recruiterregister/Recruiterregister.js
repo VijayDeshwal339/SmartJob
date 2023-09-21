@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink,Link } from 'react-router-dom';
+import { NavLink, Link } from "react-router-dom";
 import {
   Box,
   Button,
@@ -12,6 +12,7 @@ import {
   InputAdornment,
   TextField,
   Typography,
+  Autocomplete,
 } from "@mui/material";
 
 // import FacebookLoginButton from '../../../../../partials/Facebook';
@@ -21,18 +22,35 @@ import admin from "../../../../../assets/img/admin-01 1.png";
 import Google from "../../../../../assets/img/Google.png";
 import Facebook from "../../../../../assets/img/Facebook.png";
 import Linkedin from "../../../../../assets/img/Linkedin.png";
-import colors from "../../../../../utils/colors";
+import Colors from "../../../../../utils/colors";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useState, useEffect } from "react";
 import Axios from "../../../../../utils/Axios";
-import Icondialogue from"../../../../../partials/Icondialogue"
+// import Icondialogue from"../../../../../partials/Icondialogue"
 // import { useFormik } from "formik/dist";
 // import * as Yup from "yup";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import countries from "../../../../../partials/CountryName";
+
+const btnstyles = {
+  color: Colors.palette.primary.main,
+  backgroundColor: Colors.palette.primary.backgroundjob,
+  border: "1px solid #CCFFCC",
+  borderRadius: "30px",
+  boxShadow: "2px 2px 2px 1px rgba(0, 0, 0, 0.2);",
+  width: "200px",
+  height: "54px",
+  "&:hover": {
+    backgroundColor: Colors.palette.primary.color,
+    border: "1px solid #6973FE",
+  },
+  margin: "0 10px",
+};
 
 const Login = () => {
   const [checked, setChecked] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
+  const [selectedCountry, setSelectedCountry] = useState(null);
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -41,6 +59,8 @@ const Login = () => {
   const handleShowPassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
+
+  
 
   // const validationSchema = Yup.object({
   //   email: Yup.string().required("Email/Username is required"),
@@ -62,9 +82,9 @@ const Login = () => {
   const fetchGetAllActive = async () => {
     setLoading(true);
     try {
-      const response = await Axios.get('/createussers');
+      const response = await Axios.get("/createussers");
       setData(response.data.data); // Update the state with fetched data
-      console.log(response.data.data)
+      console.log(response.data.data);
     } catch (error) {
       console.error(error);
     } finally {
@@ -76,11 +96,6 @@ const Login = () => {
     fetchGetAllActive();
   }, []);
 
-
-  const handleFacebookLogin = (response) => {
-    console.log('Facebook login response:', response);
-    // You can now use the response data as needed (e.g., send it to your server).
-  };
   return (
     <Box sx={{ overflow: "hidden" }}>
       <img
@@ -111,7 +126,7 @@ const Login = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            color: "#000000",
+            color: Colors.palette.primary.main,
             "@media (max-width: 900px)": {
               display: "none",
             },
@@ -130,7 +145,10 @@ const Login = () => {
         >
           <Typography
             variant="h4"
-            sx={{ marginBottom: "3%", color: "#6973FE" }}
+            sx={{
+              marginBottom: "3%",
+              color: Colors.palette.background.default,
+            }}
           >
             Tell Us About Yourself.
           </Typography>
@@ -191,7 +209,28 @@ const Login = () => {
                           component="span"
                           sx={{ marginRight: "8px" }}
                         >
-                          91
+                          <Autocomplete
+                            id="country-select-demo"
+                            sx={{ width: 100 }}
+                            options={countries}
+                            autoHighlight
+                            getOptionLabel={(option) => `+${option.phone}`}
+                            value={selectedCountry}
+                            onChange={(event, newValue) => {
+                              setSelectedCountry(newValue);
+                            }}
+                            renderInput={(params) => (
+                              <TextField
+                                {...params}
+                                variant="standard"
+                                fullWidth
+                                InputProps={{
+                                  ...params.InputProps,
+                                  autoComplete: "new-password",
+                                }}
+                              />
+                            )}
+                          />
                         </Typography>
                         <Box
                           sx={{
@@ -267,11 +306,11 @@ const Login = () => {
                         className="circular-checkbox"
                         style={{
                           borderRadius: "50%",
-                          background: "#CCFFCC",
+                          background: Colors.palette.primary.backgroundjob,
                           "& .MuiSvgIcon-root": {
                             borderRadius: "50%",
-                            background: colors.textColor,
-                            color: colors.textColor,
+                            background: Colors.palette.primary.backgroundjob,
+                            color: Colors.palette.primary.backgroundjob,
                           },
                         }}
                         color="default"
@@ -280,14 +319,18 @@ const Login = () => {
                     label={
                       <Typography
                         variant="body2"
-                        style={{ color: "black" }}
+                        style={{ color: Colors.palette.primary.main }}
                       >
                         By registering, you agree to{" "}
-                        <span style={{ color: "#6973FE" }}>
+                        <span
+                          style={{ color: Colors.palette.background.default }}
+                        >
                           terms & conditions{" "}
                         </span>
                         &{" "}
-                        <span style={{ color: "#6973FE" }}>
+                        <span
+                          style={{ color: Colors.palette.background.default }}
+                        >
                           privacy policy
                         </span>
                         .
@@ -299,35 +342,21 @@ const Login = () => {
               </Grid>
 
               <Grid item xs={12} style={{ textAlign: "center" }}>
-              {/* <NavLink to = "/home"> */}
+                {/* <NavLink to = "/home"> */}
                 <Button
-                  
                   type="submit"
                   endIcon={<ArrowForwardIcon />}
-                  sx={{
-                    border: "1px",
-                    borderRadius: "34px",
-                    color: "black",
-                    background: "#CCFFCC",
-                    width: "200px",
-                    height: "54px",
-                    "&:hover": {
-                      backgroundColor: "#6973FE",
-                    },
-                    margin: "0 auto",
-                  }}
+                  sx={btnstyles}
                   // onClick={formik.handleSubmit}
                 >
-                  <NavLink to="/userlogin">
-                  Continue
-                  </NavLink>
+                  <NavLink to="/userlogin">Continue</NavLink>
                 </Button>
                 {/* </NavLink> */}
               </Grid>
 
               <Grid item xs={12}>
                 <Divider
-                  style={{ color: colors.black }}
+                  style={{ color: Colors.palette.primary.main }}
                   variant="middle"
                   sx={{ marginInline: "5%" }}
                 >
@@ -343,18 +372,11 @@ const Login = () => {
                 justifyContent="center"
               >
                 <IconButton type="default">
-                  <Icondialogue>
-                  {/* <img src={Google} alt="" /> */}
-                  </Icondialogue>
+                  <img src={Google} alt="" />
                 </IconButton>
                 <IconButton type="default">
                   <img src={Facebook} alt="" />
                 </IconButton>
-
-{/* <div>
-      <h1>React Facebook Login</h1>
-      <FacebookLoginButton onFacebookLogin={handleFacebookLogin} />
-    </div> */}
                 <IconButton type="default">
                   <img src={Linkedin} alt="" />
                 </IconButton>
@@ -370,31 +392,14 @@ const Login = () => {
                 <Typography
                   variant="h6"
                   component="p"
-                  sx={{ fontSize: "20px", marginRight:"10px" }}
+                  sx={{ fontSize: "20px", marginRight: "10px" }}
                 >
                   Already Have An Account?
                 </Typography>
-                
-                <Button
-                  sx={{
-                    border: "1px",
-                    borderRadius: "34px",
-                    color: "black",
-                    background: "#CCFFCC",
-                    width: "150px",
-                    height: "40px",
-                    "&:hover": {
-                      backgroundColor: "#6973FE",
-                    },
-                  }}
-                >
-                  <Link to="/adminlogin">
 
-                  Log In
-                  </Link>
-                
+                <Button sx={btnstyles}>
+                  <Link to="/adminlogin">Log In</Link>
                 </Button>
-           
               </Grid>
             </Grid>
           </Container>
@@ -410,12 +415,3 @@ const Login = () => {
 };
 
 export default Login;
-
-
-
-
-
-
-
-  
-

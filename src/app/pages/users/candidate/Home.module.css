@@ -6,7 +6,7 @@
 }
 
 .home-container {
-    min-height: 100vh; /* Ensure the container takes the full height of the viewport */
+    min-height: 100vh; 
     background-image: url('/src/app/assets/img/users/Home.jpg');
     background-size: cover;
     background-position: center;
@@ -14,13 +14,6 @@
     background-attachment: flex; 
   }
   
-  /* Add media queries for different screen sizes
-  @media screen and (max-width: 960px) {
-    .home-container {
-      background-size: auto; /* Adjust the background size automatically */
-      /* /background-attachment: scroll; Allow background scrolling */
-    /* }
-  }  */
   
   *{
     margin: 0;
@@ -38,8 +31,6 @@
   .top_searches{
     font: Poppins;
     margin: 10px;
-    font-weight: 100;
-    font-style: italic;
     /* color: #7797FE; */
     text-align: center;
   }

@@ -3,17 +3,12 @@ import { Container, colors } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
-
 import Typography from "@mui/material/Typography";
-
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import Button from "@mui/material/Button";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
-// import Navbar from "../../../partials/Navbar";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import CallOutlinedIcon from "@mui/icons-material/CallOutlined";
 import WifiCalling3RoundedIcon from "@mui/icons-material/WifiCalling3Rounded";
@@ -21,25 +16,26 @@ import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 import { useMediaQuery, useTheme } from "@mui/material";
 import user from "../../../assets/img/users/User.jpg";
+import Colors from "../../../utils/colors";
 // import Axios from "../../../utils/axios";
 
 const outlinedButton = {
   fontSize: "14px",
   borderRadius: "20px",
   textTransform: "capitalize",
-  color: "white",
-  backgroundColor: "#6973FE",
+  color: Colors.palette.primary.color,
+  backgroundColor: Colors.palette.background.default,
   margin: "4px",
   "&:hover": {
-    color: "black",
-    backgroundColor: "white",
+    color: Colors.palette.primary.main,
+    backgroundColor: Colors.palette.primary.color,
   },
 };
 
 const icons = {
-  backgroundColor: "#6973FE",
+  backgroundColor: Colors.palette.background.default,
   borderRadius: "10px",
-  color: "white",
+  color: Colors.palette.primary.color,
   fontSize: "20px",
   marginRight: "5px",
 };
@@ -48,8 +44,8 @@ const button3 = {
   display: "flex",
   borderRadius: "20px",
   textTransform: "capitalize",
-  color: "white",
-  backgroundColor: "#6973FE",
+  color: Colors.palette.primary.color,
+  backgroundColor: Colors.palette.background.default,
   marginTop: "20px",
 };
 
@@ -57,8 +53,8 @@ const button4 = {
   display: "flex",
   borderRadius: "20px",
   textTransform: "capitalize",
-  color: "black",
-  backgroundColor: "#CCFFCC",
+  color: Colors.palette.primary.main,
+  backgroundColor: Colors.palette.primary.backgroundjob,
   marginTop: "20px",
 };
 
@@ -75,7 +71,7 @@ const Box1heading = {
   marginLeft:"20px",
   fontSize: "26px",
   textDecoration: "underline",
-  textDecorationColor: "#6973FE",
+  textDecorationColor: Colors.palette.background.default,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -93,9 +89,9 @@ const imgUser = {
 };
 
 const text = {
-  color: "white",
+  color: Colors.palette.primary.color,
   borderRadius: "20px",
-  backgroundColor: "#6973FE",
+  backgroundColor: Colors.palette.background.default,
   textAlign: "center",
   padding: "10px",
 };
@@ -105,7 +101,7 @@ const icons1 = {
   alignItems: "center",
   flexDirection: "column",
   marginLeft: "20px",
-  color: "#6973FE",
+  color: Colors.palette.background.default,
 };
 
 const buttons = {
@@ -127,7 +123,7 @@ const buttons = {
 const lastIcon = {
   display: "flex",
   alignItems: "center",
-  color: "#6973FE",
+  color: Colors.palette.background.default,
 };
 
 const lowerText = {
@@ -156,7 +152,7 @@ const Box3heading = {
   fontSize: "26px",
   marginBottom: "10px",
   textDecoration: "underline",
-  textDecorationColor: "#6973FE",
+  textDecorationColor: Colors.palette.background.default,
 };
 
 const Box3styles = {
@@ -171,8 +167,8 @@ const Box3Sub = {
   borderRadius: "20px",
   marginBottom: "10px",
   padding: "8px",
-  color: "white",
-  backgroundColor: "#6973FE",
+  color: Colors.palette.primary.color,
+  backgroundColor: Colors.palette.background.default,
 };
 
 const centeredImage = {
@@ -187,14 +183,14 @@ const Box3icons = {
   alignItems: "center",
   marginTop: "10px",
   marginLeft: "20px",
-  color: "#6973FE",
+  color: Colors.palette.background.default,
 };
 
 const Box4styles = {
   display: "flex",
   borderRadius: "20px",
-  color: "white",
-  backgroundColor: "#6973FE",
+  color: Colors.palette.primary.color,
+  backgroundColor: Colors.palette.background.default,
   padding: "20px",
 };
 
@@ -212,8 +208,8 @@ const Box7styles = {
   display: "flex",
   borderRadius: "20px",
   padding: "20px",
-  color: "white",
-  backgroundColor: " #6973FE",
+  color: Colors.palette.primary.color,
+  backgroundColor: Colors.palette.background.default,
 };
 
 const centeredButtons = {
@@ -295,8 +291,8 @@ const JobDetailswithEditOption = () => {
                     sx={{
                       borderRadius: "20px",
                       textTransform: "capitalize",
-                      color: "black",
-                      backgroundColor: "#FFC804",
+                      color: Colors.palette.primary.main,
+                      backgroundColor: Colors.palette.primary.color3,
                       fontSize: "14px", 
                     }}
                   >
@@ -308,10 +304,10 @@ const JobDetailswithEditOption = () => {
                     sx={{
                       borderRadius: "20px",
                       textTransform: "capitalize",
-                      color: "white",
-                      backgroundColor: "#6973FE",
+                      color: Colors.palette.primary.color,
+                      backgroundColor: Colors.palette.background.default,
                       "&:hover": {
-                        color: "black",
+                        color: Colors.palette.primary.main,
                       },
                       fontSize: "14px", 
                     }}
@@ -460,7 +456,7 @@ const JobDetailswithEditOption = () => {
                         Job Profile:{" "}
                         <span
                           style={{
-                            color: "#6973FE",
+                            color: Colors.palette.background.default,
                             fontSize: isSmallScreen ? "20px" : "inherit",
                           }}
                         >
@@ -475,7 +471,7 @@ const JobDetailswithEditOption = () => {
                         Job Type: {" "}
                         <span
                           style={{
-                            color: "#6973FE",
+                            color: Colors.palette.background.default,
                             fontSize: isSmallScreen ? "20px" : "inherit",
                           }}
                         >
@@ -489,7 +485,7 @@ const JobDetailswithEditOption = () => {
                         Experience:{" "}
                         <span
                           style={{
-                            color: "#6973FE",
+                            color: Colors.palette.background.default,
                             fontSize: isSmallScreen ? "20px" : "inherit",
                           }}
                         >
@@ -503,7 +499,7 @@ const JobDetailswithEditOption = () => {
                         Location:{" "}
                         <span
                           style={{
-                            color: "#6973FE",
+                            color: Colors.palette.background.default,
                             fontSize: isSmallScreen ? "20px" : "inherit",
                           }}
                         >
@@ -667,7 +663,7 @@ const JobDetailswithEditOption = () => {
                   sx={{
                     ...button3,
                     "&:hover": {
-                      color: "black",
+                      color: Colors.palette.primary.main,
                     },
                   }}
                 >
@@ -705,7 +701,7 @@ const JobDetailswithEditOption = () => {
               sx={{
                 ...button3,
                 "&:hover": {
-                  color: "black",
+                  color: Colors.palette.primary.main,
                 },
               }}
             >

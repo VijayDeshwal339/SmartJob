@@ -15,8 +15,7 @@ import {
   Container,
 } from "@mui/material";
 import { LocationOn, WorkOutline, Search } from "@mui/icons-material";
-import DrawerComp from "../../../partials/Drawer";
-import Axios from "../../../utils/Axios";
+// import Axios from "../../../utils/Axios";
 
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
@@ -25,7 +24,6 @@ import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import Footer from "../../../partials/Footer";
 import classes from "./JobSeeker.module.css";
-import Navbar from "../../../partials/Navbar"
 /*========== Images ============ */
 import img1 from "../../../assets/img/users/User.jpg";
 import img2 from "../../../assets/img/users/main.jpg";
@@ -90,7 +88,7 @@ const buttonStyles1 = {
   width: { xs: "100%", md: "200px" },
   height: "40px",
   borderRadius: "50px",
-  backgroundColor: Colors .palette.color.textColor,
+  backgroundColor: Colors.palette.color.textColor,
   fontSize: "18px",
   color: Colors.palette.primary.main,
   marginTop: "20px",

@@ -1,37 +1,35 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 const Colors = createTheme({
   palette: {
+
     primary: {
-      main: '#000000', 
-      backgroundjob: '#CCFFCC',
-      // backgroundjob:'red',
-      color:' #FFFFFF',
-      color1:' #00000080',
-      inactive:"#FF0000",
-      pending:"#ffc804"
+      main: "#000000",
+      backgroundjob: "#CCFFCC",
+      color: "#FFFFFF",
+      color1: "#00000080",
+      color2:"#F9F6EE",
+      color3:"#FFC804",
+      inactive: "#FF0000",
+      pending: "#ffc804",
     },
 
     background: {
-      default:  '#6973FE',
-      card: ' #7797FE',
-      text:'#FFFFFF',
-      // backgroundjob:'red',
-      background1: '#7797FE',
+      default: "#6973FE",
+      card: "#7797FE",
+      text: "#FFFFFF",
+      background1: "#7797FE",
     },
-    color:{
-      maincolor: '#000000',
-      body:' #FFFFFF',
-      textColor:'#CCFFCC',
-     
+
+    color: {
+      maincolor: "#000000",
+      body: "#FFFFFF",
+      textColor: "#CCFFCC",
     },
-    shadows:{
-      boxshadow: '4px 4px 4px 0px #00000040',
-    }
-  
-    
 
-
+    shadows: {
+      boxshadow: "4px 4px 4px 0px #00000040",
+    },
   },
 });
 
