@@ -25,8 +25,6 @@ import EmployerProfile from "../pages/users/recruiter/EmployerProfile";
 import JobDetailswithEditOption from "../pages/users/recruiter/JobDetailswithEditOption";
 
 
-
-
 import Dashboard from "../pages/users/admin/Dashboard";
 import Active1 from "../pages/users/admin/Active";
 import Inactive1 from "../pages/users/admin/Inactive";
@@ -59,8 +57,7 @@ import UserRegister from "../pages/users/auth/register/userregister/UserRegister
 
 function AppRouter() {
   const [isLoggedIn, setIsLoggedIn]= useState(false); 
-
- 
+  
   return (
     <div>
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
@@ -89,7 +86,7 @@ function AppRouter() {
       <Route path="/JobDetailswithEditOption" element={<JobDetailswithEditOption />}></Route>
 
 
-      {/* =======ADMIN ROUTES========= */}
+      {/* ======= ADMIN ROUTES ========= */}
       
       <Route path="/dashboard" element={<Dashboard />}></Route> 
       <Route path="/active" element={<Active1 />}></Route> 

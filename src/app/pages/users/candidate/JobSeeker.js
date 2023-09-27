@@ -31,9 +31,6 @@ import img3 from "../../../assets/img/users/Slack.jpg";
 import img4 from "../../../assets/img/users/Samsung.jpg";
 import Colors from "../../../utils/colors";
 
-
-
-
 const image1Styles = {
   width: "117px",
   height: "117px",
@@ -57,7 +54,8 @@ const searchBarStyles = {
   margin: "10px",
   padding: "8px 16px",
   border: "1px solid #6973FE",
-  height: "40px",
+  height: "55px",
+  width: "100%",
 };
 
 const searchBarStylesResponsive = {
@@ -70,18 +68,26 @@ const iconContainerStyles = {
   alignItems: "center",
 };
 
+const labelStyles = {
+  color: Colors.palette.background.main,
+};
+
 const buttonStyles = {
   width: { xs: "100%", md: "200px" },
+  display: "flex",
   height: "40px",
-  borderRadius: "50px",
+  borderRadius: "30px",
   backgroundColor: Colors.palette.color.textColor,
   fontSize: "18px",
+  boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.3)",
+  textTransform: "capitalize",
   color: Colors.palette.primary.main,
+  marginRight: "10px",
   "&:hover": {
-    color: Colors.palette.background.text,
-    backgroundColor: Colors.palette.background.card,
+    color: Colors.palette.background.card,
+    backgroundColor: Colors.palette.background.text,
+    justifyContent: { sm: "center" },
   },
-  textTransform: "capitalize ",
 };
 
 const buttonStyles1 = {
@@ -124,7 +130,7 @@ const buttonstyle3Responsive = {
   color: Colors.palette.primary.main,
   marginTop: "20px",
   "&:hover": {
-    color:Colors.palette.background.text,
+    color: Colors.palette.background.text,
     backgroundColor: Colors.palette.background.card,
   },
   textTransform: "capitalize ",
@@ -133,7 +139,7 @@ const buttonstyle3Responsive = {
 
 const dividerStyles = {
   backgroundColor: Colors.palette.background.default,
-  height: "55px",
+  height: "100%",
 };
 
 const JobSeeker = () => {
@@ -166,81 +172,89 @@ const JobSeeker = () => {
 
   return (
     <>
-     {/* <Navbar/> */}
+      {/* <Navbar/> */}
 
       {/* Search Bar */}
       <Box
-        component="form" // Form element to handle form submission
         sx={{
-          ...searchBarStyles,
-          ...(isSmallScreen && searchBarStylesResponsive),
-          flexDirection: isSmallScreen ? "column" : "row",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        {/* Search Input */}
-        <Grid>
-          <Box sx={iconContainerStyles}>
-            <Search />
-            <TextField
-              label="Skill/Designations/Companies"
-              variant="outlined"
-              size="small"
-              fullWidth={!isSmallScreen}
-              sx={{
-                "& fieldset": { border: "none" },
-              }}
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-            />
-          </Box>
-        </Grid>
-        {!isSmallScreen && (
-          <Divider orientation="vertical" sx={dividerStyles} />
-        )}
-        {/* Location Input */}
-        <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
-          <Box sx={iconContainerStyles}>
-            <LocationOn />
-            <TextField
-              label="Location"
-              variant="outlined"
-              size="small"
-              fullWidth={!isSmallScreen}
-              sx={{
-                "& fieldset": { border: "none" },
-              }}
-            />
-          </Box>
-        </Grid>
-        {!isSmallScreen && (
-          <Divider orientation="vertical" sx={dividerStyles} />
-        )}
-        {/* Experience Input */}
-        <Grid item>
-          <Box sx={iconContainerStyles}>
-            <WorkOutline />
-            <TextField
-              label="Experience"
-              variant="outlined"
-              size="small"
-              fullWidth={!isSmallScreen}
-              sx={{
-                "& fieldset": { border: "none" },
-              }}
-            />
-          </Box>
-        </Grid>
-        {!isSmallScreen && (
-          <Divider orientation="vertical" sx={dividerStyles} />
-        )}
-        {/* Submit Button */}
-        <Button
-          type="submit"
-          variant="contained"
-          sx={{ ...buttonStyles, ...(isSmallScreen && buttonstyle2Responsive) }}
+        <Box
+          component="form" // Form element to handle form submission
+          sx={{
+            ...searchBarStyles,
+            ...(isSmallScreen && searchBarStylesResponsive),
+            flexDirection: isSmallScreen ? "column" : "row",
+          }}
         >
-          Search
-        </Button>
+          {/* Search Input */}
+          <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
+            <Box sx={iconContainerStyles}>
+              <Search />
+              <TextField
+                label="Job Title/Role/Skills"
+                variant="outlined"
+                size="small"
+                fullWidth={!isSmallScreen}
+                InputLabelProps={{ style: labelStyles }}
+                sx={{
+                  "& fieldset": { border: "none" },
+                }}
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+              />
+            </Box>
+          </Grid>
+          {!isSmallScreen && (
+            <Divider orientation="vertical" sx={dividerStyles} />
+          )}
+          {/* Location Input */}
+          <Grid item style={{ marginRight: isSmallScreen ? "0" : "16px" }}>
+            <Box sx={iconContainerStyles}>
+              <LocationOn />
+              <TextField
+                label="Location"
+                variant="outlined"
+                size="small"
+                fullWidth={!isSmallScreen}
+                InputLabelProps={{ style: labelStyles }}
+                sx={{
+                  "& fieldset": { border: "none" },
+                }}
+              />
+            </Box>
+          </Grid>
+          {!isSmallScreen && (
+            <Divider orientation="vertical" sx={dividerStyles} />
+          )}
+          {/* Experience Input */}
+          <Grid item>
+            <Box sx={iconContainerStyles}>
+              <WorkOutline />
+              <TextField
+                label="Experience"
+                variant="outlined"
+                size="small"
+                fullWidth={!isSmallScreen}
+                InputLabelProps={{ style: labelStyles }}
+                sx={{
+                  "& fieldset": { border: "none" },
+                }}
+              />
+            </Box>
+          </Grid>
+          {!isSmallScreen && (
+            <Divider orientation="vertical" sx={dividerStyles} />
+          )}
+          {/* Submit Button */}
+          <Button type="submit" variant="contained" sx={buttonStyles}>
+            <Search />
+            Search
+          </Button>
+        </Box>
       </Box>
 
       {/*============ MAIN CONTENT ==============*/}
@@ -249,7 +263,7 @@ const JobSeeker = () => {
           {/*============ COLUMN 1 ==============*/}
           <Grid item md={3}>
             <Box>
-              <div className={classes['text']}>
+              <div className={classes["text"]}>
                 <Box
                   component="img"
                   src={img1}
@@ -276,37 +290,58 @@ const JobSeeker = () => {
                 </Button>
               </div>
 
-              <div className={classes['block1CLM1']} style={{color:Colors.palette.background.text,backgroundColor:Colors.palette.background.card}}>
+              <div
+                className={classes["block1CLM1"]}
+                style={{
+                  color: Colors.palette.background.text,
+                  backgroundColor: Colors.palette.background.card,
+                }}
+              >
                 <h4>Profile Performance</h4>
                 <Grid container spacing={2}>
                   <Grid item xs={6}>
-                    <Box className={classes['marginClass']}>Search appearances</Box>
-                    <Box className={classes['marginClass']}>0</Box>
+                    <Box className={classes["marginClass"]}>
+                      Search appearances
+                    </Box>
+                    <Box className={classes["marginClass"]}>0</Box>
                   </Grid>
                   <Grid item xs={6}>
-                    <Box className={classes['marginClass']}>Recruiter actions</Box>
-                    <Box className={classes['marginClass']}>0</Box>
+                    <Box className={classes["marginClass"]}>
+                      Recruiter actions
+                    </Box>
+                    <Box className={classes["marginClass"]}>0</Box>
                   </Grid>
                 </Grid>
               </div>
 
-              <div className={classes['block2CLM1']} style={{color:Colors.palette.background.text,backgroundColor:" #F5F5F5"}}>
+              <div
+                className={classes["block2CLM1"]}
+                style={{
+                  color: Colors.palette.background.text,
+                  backgroundColor: " #F5F5F5",
+                }}
+              >
                 <Grid container spacing={2}>
                   <Grid item md={2}>
-                    <Box className={classes['iconsResponsive']}>
-                    <HomeOutlinedIcon className={classes['marginClass']} />
-                    <WorkOutlineOutlinedIcon className={classes['marginClass']} />
-                    <LocationCityOutlinedIcon className={classes['marginClass']} />
-                    <NewspaperOutlinedIcon className={classes['marginClass']} />
+                    <Box className={classes["iconsResponsive"]}>
+                      <HomeOutlinedIcon className={classes["marginClass"]} />
+                      <WorkOutlineOutlinedIcon
+                        className={classes["marginClass"]}
+                      />
+                      <LocationCityOutlinedIcon
+                        className={classes["marginClass"]}
+                      />
+                      <NewspaperOutlinedIcon
+                        className={classes["marginClass"]}
+                      />
                     </Box>
-                    
                   </Grid>
 
                   <Grid item md={10}>
-                    <Box className={classes['marginClass']}>Home</Box>
-                    <Box className={classes['marginClass']}>Jobs</Box>
-                    <Box className={classes['marginClass']}>Companies</Box>
-                    <Box className={classes['marginClass']}>Blogs</Box>
+                    <Box className={classes["marginClass"]}>Home</Box>
+                    <Box className={classes["marginClass"]}>Jobs</Box>
+                    <Box className={classes["marginClass"]}>Companies</Box>
+                    <Box className={classes["marginClass"]}>Blogs</Box>
                   </Grid>
                 </Grid>
               </div>
@@ -315,7 +350,10 @@ const JobSeeker = () => {
           {/*============ COLUMN 2 ==============*/}
           <Grid item md={isSmallScreen ? 12 : 6}>
             <Box>
-              <div className={classes['block1CLM2']} style={{backgroundColor:Colors.palette.background.card,}}></div>
+              <div
+                className={classes["block1CLM2"]}
+                style={{ backgroundColor: Colors.palette.background.card }}
+              ></div>
             </Box>
 
             <Grid container spacing={2}>
@@ -369,10 +407,16 @@ const JobSeeker = () => {
               </Grid>
             </Grid>
 
-            <Box className={classes['block2CLM2']} Style={{backgroundColor:Colors.palette.background.card}}>
+            <Box
+              className={classes["block2CLM2"]}
+              Style={{ backgroundColor: Colors.palette.background.card }}
+            >
               <Grid container spacing={2}>
                 <Grid item md={6}>
-                  <Box className={classes['block2CLM2Box']} style={{backgroundColor:Colors.palette.background.text}}>
+                  <Box
+                    className={classes["block2CLM2Box"]}
+                    style={{ backgroundColor: Colors.palette.background.text }}
+                  >
                     <Box
                       component="img"
                       src={img3}
@@ -392,7 +436,10 @@ const JobSeeker = () => {
                 </Grid>
 
                 <Grid item md={6}>
-                  <Box className={classes['block2CLM2Box']} style={{backgroundColor:Colors.palette.background.text}}>
+                  <Box
+                    className={classes["block2CLM2Box"]}
+                    style={{ backgroundColor: Colors.palette.background.text }}
+                  >
                     <Box
                       component="img"
                       src={img4}
@@ -414,13 +461,16 @@ const JobSeeker = () => {
               </Grid>
             </Box>
 
-            <Box className={classes['block3CLM2']}>
+            <Box className={classes["block3CLM2"]}>
               <span>Banner</span>
             </Box>
           </Grid>
           {/*============ COLUMN 3 ==============*/}
           <Grid item md={3}>
-            <Box className={classes['block1CLM3']} style={{backgroundColor:Colors.palette.background.card}}>
+            <Box
+              className={classes["block1CLM3"]}
+              style={{ backgroundColor: Colors.palette.background.card }}
+            >
               <p style={{ color: Colors.palette.background.text }}>
                 Do you need help introducing yourself confidently in interviews?
               </p>
@@ -468,7 +518,10 @@ const JobSeeker = () => {
               </Button>
             </Box>
 
-            <Box className={classes['block2CLM3']} style={{backgroundColor:Colors.palette.background.text}}>
+            <Box
+              className={classes["block2CLM3"]}
+              style={{ backgroundColor: Colors.palette.background.text }}
+            >
               <span>Banner</span>
             </Box>
           </Grid>
@@ -476,8 +529,10 @@ const JobSeeker = () => {
       </Container>
 
       {/*============ FOOTER ==============*/}
-      <Box sx={{  mt:{md:"10%",xl:"10%",lg:"10%",sm:"20%",xs:"20%"}}}>
-      <Footer/>
+      <Box
+        sx={{ mt: { md: "10%", xl: "10%", lg: "10%", sm: "20%", xs: "20%" } }}
+      >
+        <Footer />
       </Box>
       {/* <Footer/> */}
     </>

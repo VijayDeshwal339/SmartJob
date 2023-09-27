@@ -33,7 +33,7 @@ const InactiveCandidate = () => {
   return (
    <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" className="wrapper">
     <Sidebar/>
-    <Typography  justifyContent="center" alignItems="ceneter" marginLeft="2rem" variant='h4'>Inactive Candidate </Typography>
+    <Typography  justifyContent="center" alignItems="ceneter" marginBottom="10px" variant='h4'>All Inactive Candidate </Typography>
     <Searchbar/>
     <Menu/>
     {loading ? <h1><Loader/></h1> : <Table data={data} />}

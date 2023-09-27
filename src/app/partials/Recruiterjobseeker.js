@@ -47,7 +47,8 @@ const RecruiterJobSeeker = () => {
               sx={{
                 marginRight: "20px",
                 borderRadius: "20px",
-                background: "#6973FE",
+                background: Colors.palette.background.default,
+                border: "1px solid black",
                 textTransform: "capitalize",
                 "&:hover": {
                   backgroundColor: Colors.palette.primary.color,
@@ -101,6 +102,7 @@ const RecruiterJobSeeker = () => {
                 marginRight: "20px",
                 borderRadius: "20px",
                 background: Colors.palette.background.default,
+                border: "1px solid black",
                 textTransform: "capitalize",
                 "&:hover": {
                   backgroundColor: Colors.palette.primary.color,

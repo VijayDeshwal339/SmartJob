@@ -59,7 +59,7 @@ const styles = {
     "&:hover": {
       borderColor: "rgba(0, 0, 0, 0.23)",
       backgroundColor: Colors.palette.primary.color,
-      color: Colors.palette.background.default,
+      color: Colors.palette.background.card,
     },
   },
 };
