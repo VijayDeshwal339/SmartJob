@@ -6,7 +6,7 @@ import Table from "./common/table";
 import Axios from "../../../utils/Axios";
 import Loader from "../../users/admin/common/Loader";
 import { useState, useEffect } from "react";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Container } from "@mui/material";
 const Candidate = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]); 
@@ -29,6 +29,7 @@ const Candidate = () => {
   }, []);
 
   return (
+    <Container>
     <Box
       display="flex"
       flexDirection="column"
@@ -59,6 +60,7 @@ const Candidate = () => {
         <Table data={data} />
       )}
     </Box>
+    </Container>
   );
 };
 

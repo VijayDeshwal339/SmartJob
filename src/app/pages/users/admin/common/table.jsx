@@ -1,4 +1,113 @@
-import React, { useState } from "react"; // Removed useEffect as it's not used here
+// import React, { useState } from "react"; // Removed useEffect as it's not used here
+// import Paper from "@mui/material/Paper";
+// import Table from "@mui/material/Table";
+// import TableBody from "@mui/material/TableBody";
+// import TableCell from "@mui/material/TableCell";
+// import TableContainer from "@mui/material/TableContainer";
+// import TableHead from "@mui/material/TableHead";
+// import TablePagination from "@mui/material/TablePagination";
+// import TableRow from "@mui/material/TableRow";
+// import { Box, Container } from "@mui/material";
+
+// // Removed Axios import as it's not used in this component
+
+// const columns = [
+//   { id: "userId", label: "User ID", minWidth: 170 },
+//   { id: "name", label: "Name", minWidth: 100 },
+//   {
+//     id: "status",
+//     label: "Status",
+//     minWidth: 170,
+//     align: "right",
+//     format: (value) => value.toLocaleString("en-US"),
+//   },
+//   {
+//     id: "createdAt",
+//     label: "Created At",
+//     minWidth: 170,
+//     align: "right",
+//     format: (value) => value.toLocaleString("en-US"),
+//   },
+// ];
+
+// export default function StickyHeadTable({ data }) {
+//   const [page, setPage] = useState(0);
+//   const [rowsPerPage, setRowsPerPage] = useState(10);
+//   const [rows, setRows] = useState(data); // Ensure data is correctly passed as a prop
+
+//   const handleChangePage = (event, newPage) => {
+//     setPage(newPage);
+//   };
+
+//   const handleChangeRowsPerPage = (event) => {
+//     setRowsPerPage(+event.target.value);
+//     setPage(0);
+//   };
+
+//   return (
+//     <Container sx={{ display: "flex", justifyContent: "center" }}>
+//       <Box
+//         sx={{ width: "80%", justifyContent: "center", alignItems: "center",marginBottom:'50px' }}
+//       >
+//         <Paper>
+//           <TableContainer sx={{ maxHeight: "100%", overflow: "auto" }}>
+//             <Table stickyHeader aria-label="sticky table">
+//               <TableHead>
+//                 <TableRow>
+//                   {columns.map((column) => (
+//                     <TableCell
+//                       key={column.id}
+//                       align={column.align}
+//                       style={{ minWidth: column.minWidth }}
+//                     >
+//                       {column.label}
+//                     </TableCell>
+//                   ))}
+//                 </TableRow>
+//               </TableHead>
+//               <TableBody>
+//                 {setRows.length > 0 &&
+//                   rows
+//                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+//                     .map((row) => (
+//                       <TableRow
+//                         hover
+//                         role="checkbox"
+//                         tabIndex={-1}
+//                         key={row.userId}
+//                       >
+//                         {columns.map((column) => {
+//                           const value = row[column.id];
+//                           return (
+//                             <TableCell key={column.id} align={column.align}>
+//                               {column.format && typeof value === "number"
+//                                 ? column.format(value)
+//                                 : value}
+//                             </TableCell>
+//                           );
+//                         })}
+//                       </TableRow>
+//                     ))}
+//               </TableBody>
+//             </Table>
+//           </TableContainer>
+//           <TablePagination
+//             rowsPerPageOptions={[10, 25, 100]}
+//             component="div"
+//             count={rows.length}
+//             rowsPerPage={rowsPerPage}
+//             page={page}
+//             onPageChange={handleChangePage}
+//             onRowsPerPageChange={handleChangeRowsPerPage}
+//           />
+//         </Paper>
+//       </Box>
+//     </Container>
+//   );
+// }
+
+
+import React, { useState, useEffect } from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -8,8 +117,6 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { Box, Container } from "@mui/material";
-
-// Removed Axios import as it's not used in this component
 
 const columns = [
   { id: "userId", label: "User ID", minWidth: 170 },
@@ -29,11 +136,17 @@ const columns = [
     format: (value) => value.toLocaleString("en-US"),
   },
 ];
-
+ 
 export default function StickyHeadTable({ data }) {
+ 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [rows, setRows] = useState(data); // Ensure data is correctly passed as a prop
+  const [rows, setRows] = useState([]); // Initialize rows as an empty array
+
+  useEffect(() => {
+    // Update rows whenever data prop changes
+    setRows(data);
+  }, [data]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -47,7 +160,7 @@ export default function StickyHeadTable({ data }) {
   return (
     <Container sx={{ display: "flex", justifyContent: "center" }}>
       <Box
-        sx={{ width: "80%", justifyContent: "center", alignItems: "center" }}
+        sx={{ width: "80%", justifyContent: "center", alignItems: "center", marginBottom: '50px' }}
       >
         <Paper>
           <TableContainer sx={{ maxHeight: "100%", overflow: "auto" }}>
@@ -66,7 +179,7 @@ export default function StickyHeadTable({ data }) {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {setRows.length > 0 &&
+                {rows.length > 0 &&
                   rows
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((row) => (
@@ -105,3 +218,4 @@ export default function StickyHeadTable({ data }) {
     </Container>
   );
 }
+

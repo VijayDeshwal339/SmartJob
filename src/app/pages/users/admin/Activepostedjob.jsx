@@ -122,7 +122,8 @@ const ActivePostedJob = ({ Postedtitle, buttonColor }) => {
   const fetchGetAllActive = async () => {
     setLoading(true);
     try {
-      const response = await Axios.get("/getallapprovednotappjobs");
+      // const response = await Axios.get("/getallapprovednotappjobs");
+      const response = await Axios.get("/getallapprovednotappjobs", {params:{  is_approved:1, page: 1 }});
       setData(response.data.data);
       console.log(response.data.data);
     } catch (error) {
